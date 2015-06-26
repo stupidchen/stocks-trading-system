@@ -1,8 +1,12 @@
-<?
+<!DOCTYPE HTML>
+<html>
+<body>
+<?php
+$buf = socket_read($msgsock,8192);
 //create connect write read close
 set_time_limit(0);
 
-$ip = '127.0.0.1';
+$ip = '10.189.60.185';
 $port = 1935;
 
 $socket = socket_create(AF_INET,SOCK_STREAM,SOL_TCP);
@@ -28,3 +32,5 @@ while ($out = socket_read($socket,8192)){
 
 socket_close($socket);
 ?>
+</body>
+</html>

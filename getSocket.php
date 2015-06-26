@@ -4,6 +4,7 @@ set_time_limit(0);
 $ip = '127.0.0.1';
 $port = 1935;
 
+
 if (($sock = socket_create(AF_INET,SOCK_STREAM,SOL_TCP)) < 0){
 	echo "scoket_create() failed. The reason is :".socket_strerror($sock)."\n";
 }
@@ -22,18 +23,17 @@ do{
 		break;
 	}
 	else{
-		$msg = "Connection success!\n";
+		$msg = "Connection $count success!\n";
+		$count++;
 		socket_write($msgsock,$msg,strlen($msg));
 
-		echo "hello world!\n";
 		$buf = socket_read($msgsock,8192);
+		if (strcmp($buf,":halt") == 0) break;
+		echo $count."\n";
 
 		$feedback = "received :$buf\n";
 		echo $feedback;
 
-		if ($count++ >= 5){
-			break;
-		}
 	}
 	socket_close($msgsock);
 }

@@ -1,7 +1,7 @@
 <?php
 set_time_limit(0);
 
-$ip = '127.0.0.1';
+$ip = '192.168.220.130';
 $port = 1935;
 
 
@@ -23,15 +23,14 @@ do{
 		break;
 	}
 	else{
-		$msg = "Connection $count success!\n";
+		$msg = "Connection $count success!";
 		$count++;
 		socket_write($msgsock,$msg,strlen($msg));
 
 		$buf = socket_read($msgsock,8192);
 		if (strcmp($buf,":halt") == 0) break;
-		echo $count."\n";
 
-		$feedback = "received :$buf\n";
+		$feedback = "No.$count connection received :$buf\n";
 		echo $feedback;
 
 	}

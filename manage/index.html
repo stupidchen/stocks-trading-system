@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+	<title>Back-stage Management</title>
+	<meta charset="utf-8">
+	<script src="function.js"></script>
+	<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="buttons.js"></script>
+	<link rel="stylesheet" type="text/css" href="file.css">
+	<link rel="stylesheet" href="buttons.css">
+</head>
+<body onload="get_message()">
+	<div id="title">Back-stage Management</div>
+	<hr noshade color="#34495E"/>
+    </br>
+	<div id="get">
+	    <input type="number" id="code" placeholder="请输入股票代号" />
+	    <input type="number" id="amount" placeholder="请输入数量" />
+	    <input type="number" id="price" placeholder="请输入价格" />
+
+	    <span class="button-dropdown" data-buttons="dropdown">
+            <button class="button button-rounded" id="type" style="width:160px;height:40px;">选择类型</button>
+            <ul class="button-dropdown-list">
+                <li><a onclick="select_change_in()">IN</a></li>
+                <li><a onclick="select_change_out()">OUT</a></li>
+                <li class="button-dropdown-divider"></li>
+            </ul>
+        </span>
+
+        <a class="button button-glow button-rounded button-royal" onclick="submit_single()">单指令调试</a>
+        <a class="button button-glow button-rounded button-royal" onclick="submit_batch()">批量调试</a>
+        </br></br>
+        <img id="pic" src="UI.jpg" /> 
+        </br>
+        <textarea id="message"></textarea>
+    </div>
+</body>
+<foot>
+</foot>
+</html>

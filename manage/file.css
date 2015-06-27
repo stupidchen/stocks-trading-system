@@ -1,0 +1,41 @@
+#title
+{
+	font-size: 50px;
+	font-family: "Georgia","Microsoft YaHei",sans-serif;
+	text-align: center;
+	color:#34495E;
+}
+#get
+{
+	text-align: center;
+}
+#message
+{
+	width: 983px;
+	height: 700px;
+}
+#code
+{
+	border-radius:5px;
+	width:160px;
+	height:35px;
+	font-size:15px;
+}
+#amount
+{
+	border-radius:5px;
+	width:160px;
+	height:35px;
+	font-size:15px;
+}
+#price
+{
+	border-radius:5px;
+	width:160px;
+	height:35px;
+	font-size:15px;
+}
+body
+{
+    background-color: #FFFFFF;
+}

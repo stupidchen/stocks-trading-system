@@ -1,4 +1,5 @@
 <?php
+require("./head.php");
 class information{
 	public $ins_num, $ins_deal_num;
 	public function information($ins_num = 0, $ins_deal_num = 0){
@@ -8,16 +9,27 @@ class information{
 }
 class instructions{
 	public $time, $id, $amount, $price;
-	public function instructions($time = NULL, $id = NULL, $amount = NULL, $price = NULL){
-		$this->time = $time;
-		$this->id = $id;
-		$this->amount = $amount;
-		$this->price = $price;
+	public function instructions($allIns){
+		$this->time = $allIns->time;
+		$this->id = $allIns->id;
+		$this->amount = $allIns->amount;
+		$this->price = $allIns->price;
 	}
 	public function compare($another = NULL){ //this>data?true:false
 		if ($this->price > $another->price) return true;
 		if ($this->time < $another->time) return true;
 		return false;
+	}
+}
+class allInstructions{
+	public $time, $id, $code, $amount, $price, $status;
+	public function allInstructions($time = NULL, $id = NULL, $code = NULL, $amount = NULL, $price = NULL, $status = NULL){
+		$this->time = $time;
+		$this->id = $id;
+		$this->code = $code;
+		$this->amount = $amount;
+		$this->price = $price;
+		$this->status = $status;
 	}
 }
 class node{
@@ -90,6 +102,31 @@ class treap{
 		else{
 			$this->addIns($node->right, $info);
 			if ($node->level > $node->right->level) $this->left_rotate($node);
+		}
+	}
+	public function deleteIns(&$node, $info){
+		if ($node == NULL) return false;
+		if ($node->getData()->id == $info->id && $node->getData()->price == $info->price){
+			$temp = NULL;
+			if ($node->left !=  NULL) $temp = $node->left;
+			if ($node->right != NULL && ($temp == NULL || $node->right->getData()->level < $temp->getData()->level)) $temp = $node->right;
+
+			if ($temp == NULL){
+				$node = NULL;
+				return true;
+			} 
+			if ($temp == $node->left){
+				$this->left_rotate($node);
+				return deleteIns($node->left, $id, $price);
+			}
+			if ($temp == $node->right){
+				$this->right_rotate($node);
+				return deleteIns($node->right, $id, $price);
+			}
+		}
+		else{
+			if ($node->getData()->compare($info)) return deleteIns($node->left, $info);
+			else return deleteIns($node->right, $info);
 		}
 	}
 	public function getFirstIns($node){
@@ -213,7 +250,11 @@ class stock{
 		}
 		return $result;
 	}
-
+	public function deleteIns($newIns){
+		$result1 = $this->buyIns->deleteIns($this->buyIns->root, $newIns);
+		$result2 = $this->sellIns->deleteIns($this->buyIns->root, $newIns);
+		return ($result1 && $result2);
+	}
 }
 class pool{
 	private $stock_ins;
@@ -232,19 +273,28 @@ class pool{
 			$this->stock_ins[$i] = new stock($i);
 		}
 	}
-	public function addIns($time, $id, $amount, $price, $code, $status){
+	public function addInstruction($tempInstruction){//status 0:buy 1:sell 2:delete 3:pause 4:restart
 		$result=new tradeResult();
 		if (!$this->stock_ins[$code]->useful) return $result;
-		$newIns=new instructions($time,$id,$amount,$price);
+		$newIns=new instructions($tempInstruction);
 		if ($status == 0) $result = $this->stock_ins[$code]->addBuyIns($newIns);
 		else $result = $this->stock_ins[$code]->addSellIns($newIns);
 		return $result;
 	}
-	public function deleteIns(){
-
+	public function deleteInstruction($tempInstruction){
+		$newIns=new instructions($tempInstruction);
+		return $this->stock_ins[$code]->deleteIns($newIns);
 	}
-	public function changeStatus($code, $status){
-		$this->stock_ins[$code]->status = $status;
+	public function changeStatus($tempInstruction){
+		if ($tempInstruction->status == 3){
+			$temp = false^$this->stock_ins[$code]->status;
+			$this->stock_ins[$code]->status = false;
+		}
+		else{
+			$temp = true^$this->stock_ins[$code]->status;
+			$this->stock_ins[$code]->status = true;
+		}
+		return $temp;
 	}
 }
 ?>

@@ -1,27 +1,48 @@
 <?php 
+require("./head.php");
 require("./pool.php");
 //require("./input.php");
 //require("./database.php");
 class controller{
-	public $ip='127.0.0.1';
-	public $port='1935';
-	public $bootTime;
+	public $bootDate,$bootTime;
 	public $poolUnit,$databaseUnit,$inputUnit;
+	public $globalStatus = false;
 	public function controller(){
 		$this->poolUnit = new pool();
 //		$this->databaseUnit = new database();
 //		$this->inputUnit = new inputUnit();
-		$this->bootTime = time();
+		$this->bootDate = time()/$daySegment*$daySegment;
+	}
+	public function clear(){
+		$this->poolUnit->clear();
+	}
+	public function setStatus(){
+		$timeNow = time() % $daySegment;
+		$timeSegment = $timeNow-$bootDate;
+		if ($timeSegment > 9*$hourSegment+30 && $timeSegment < 11*$hourSegment+30){
+			$this->globalStatus = true;
+			return;
+		}
+		if ($timeSegment > 13*$hourSegment && $timeSegment < 15*$hourSegment){
+			$this->globalStatus = true;
+			return;
+		}
+		$this->globalStatus = false;
+		if ($timeSegment > 16*$hourSegment) $this->clear();
+	}
+	public function getInstruction(){
 	}
 	public function process(){
 //		$inputUnit->run();
-		for ($i = 0; $i < 5; $i++){
-			$timeNow = time();
-			$result = $this->poolUnit->addIns($timeNow ,0 ,100 ,100 ,0 ,0 );
-			$result = $this->poolUnit->addIns($timeNow, 0 ,100 ,101 ,0 ,1 );
-			$result = $this->poolUnit->addIns($timeNow ,0 ,100 ,100 ,0 ,1 );
-			echo $result->num."\n";
-		}
+		do{
+			$this->setStatus();
+			if ($this->globalStatus){
+				$result = $this->poolUnit->addIns(getTimeStamp(),0 ,100 ,100 ,0 ,0 );
+				$result = $this->poolUnit->addIns(getTimeStamp(), 0 ,100 ,101 ,0 ,1 );
+				$result = $this->poolUnit->addIns(getTimeStamp(),0 ,100 ,100 ,0 ,1 );
+				echo $result->num."\n";
+			}
+		}while (true);
 	}
 }
 

@@ -1,15 +1,15 @@
 <?php
-class database { 
-	$private connection;
-	public function database($address, $dbName, $tableName){
-		$this->connection = mysql_connect($address, $dbName, $tableName);
+class database{ 
+	private $connection;
+	public function database(){
+		$this->connection = mysql_connect('121.40.194.163', 'sts', 'sts2015');
 	}
 /*	public function clear(){
 		$db = $connection;
     		if(!$db) die('Database connect failed.'.mysql_error());
     		mysql_select_db("sts", $db);
 		$sqlQuery = "delete * from Stock_Deal_History";
-*/	}
+	}*/
 	public function close(){
 		mysql_close($this->connection);
 	}

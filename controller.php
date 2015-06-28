@@ -1,7 +1,10 @@
 <?php 
-require_once __DIR__ . 'head.php';
-require_once __DIR__ . 'pool.php';
-require_once __DIR__ . 'database.php';
+require_once __DIR__.'/pool.php';
+require_once __DIR__.'/database.php';
+const serverIP = '127.0.0.1';
+const serverPort = '1935';
+const daySegment = 86400; //3600*24
+const hourSegment = 3600;
 class controller{
 	public $bootTime;
 	public $poolUnit,$databaseUnit;
@@ -9,7 +12,7 @@ class controller{
 	public function controller(){
 		$this->poolUnit = new pool();
 		$this->databaseUnit = new database();
-		$this->bootTime = time()/$daySegment*$daySegment;
+		$this->bootTime = time()/daySegment*daySegment;
 	}
 	public function clear(){
 		$this->poolUnit->clear();
@@ -17,15 +20,15 @@ class controller{
 	public function setStatus(){
 		$timeNow = time() % $daySegment;
 		$timeSegment = $timeNow-$bootDate;
-		if ($timeSegment > 9*$hourSegment+30 && $timeSegment < 11*$hourSegment+30){
+		if ($timeSegment > 9*hourSegment+30 && $timeSegment < 11*hourSegment+30){
 			$this->globalStatus = true;
 			return;
 		}
-		if ($timeSegment > 13*$hourSegment && $timeSegment < 15*$hourSegment){
+		if ($timeSegment > 13*hourSegment && $timeSegment < 15*hourSegment){
 			$this->globalStatus = true;
 			return;
 		}
-		if ($timeSegment > 16*$hourSegment && $this->globalStatus) $this->clear();
+		if ($timeSegment > 16*hourSegment && $this->globalStatus) $this->clear();
 		$this->globalStatus = false;
 	}
 	public function process($ins){
@@ -57,6 +60,9 @@ class controller{
 			}
 		}
 		return true;
+	}
+	public function close(){
+		$this->clear();
 	}
 }
 

@@ -1,5 +1,10 @@
 <?php
-require("./head.php");
+function getTimeStamp(){
+	$timeNow=microTime();
+	list($msec,$sec)=explode(" ",$timeNow);
+	return ((float)$msec + (float)$sec);
+}
+
 class information{
 	public $ins_num, $ins_deal_num;
 	public function information($ins_num = 0, $ins_deal_num = 0){
@@ -9,7 +14,7 @@ class information{
 }
 class instructions{
 	public $time, $id, $code, $amount, $price, $status, $msec, $total;
-	public function instructions($time = NULL, $aid = NULL, $code = NULL, $amount = NULL, $price = NULL, $status = NULL, $total = (float)$price*$amount){
+	public function instructions($time = NULL, $aid = NULL, $code = NULL, $amount = NULL, $price = NULL, $status = NULL, $total = NULL){
 		$this->time = $time;
 		$this->aid = $aid;
 		$this->code = $code;
@@ -17,7 +22,8 @@ class instructions{
 		$this->price = (float)$price;
 		$this->status = $status;
 		$this->msec = getTimeStamp();
-		$this->total = $total;
+		if ($total != NULL) $this->total = $total;
+		else $total->total = $price*$amount;
 	}
 	public function getStatus(){
 		return $this->status;
@@ -62,7 +68,8 @@ class tradeResult{
 		$this->ins = array();
 		$this->num = 0;
 	}
-	public function addResult($amount, $price, $ins, $total = $amount*$price){
+	public function addResult($amount, $price, $ins, $total = NULL){
+		if ($total == NULL) $total = $amount*$price;
 		$this->ins[$this->num] = new instructions(time(), $ins->id, $ins->code, $amount, $price, $ins->status, $total);
 		$this->num++;
 		

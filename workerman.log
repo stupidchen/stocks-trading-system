@@ -20,3 +20,20 @@
 2015-06-28 17:06:13 Workerman[start.php] is running
 2015-06-28 17:08:03 Workerman[start.php] start in DEBUG mode
 2015-06-28 17:08:03 Workerman[start.php] is running
+2015-06-28 19:44:02 Workerman[start.php] start in DEBUG mode
+2015-06-28 19:44:15 Workerman[start.php] stop 
+2015-06-28 19:44:15 Workerman[start.php] is stoping ...
+2015-06-28 19:44:15 Workerman[start.php] Stopping ...
+2015-06-28 19:44:15 Workerman[start.php] has been stopped
+2015-06-28 19:44:15 Workerman[start.php] stop success
+2015-06-28 19:48:41 Workerman[start.php] start in DEBUG mode
+2015-06-28 19:48:44 Workerman[start.php] stop 
+2015-06-28 19:48:44 Workerman[start.php] is stoping ...
+2015-06-28 19:48:44 Workerman[start.php] Stopping ...
+2015-06-28 19:48:44 Workerman[start.php] has been stopped
+2015-06-28 19:48:44 Workerman[start.php] stop success
+2015-06-28 19:49:41 Workerman[start.php] stop 
+2015-06-28 19:49:41 Workerman[start.php] not run
+2015-06-28 19:49:41 Workerman[start.php] is stoping ...
+2015-06-28 19:49:41 Workerman[start.php] stop success
+2015-06-28 19:49:46 Workerman[start.php] start in DEBUG mode

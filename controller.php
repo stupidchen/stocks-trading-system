@@ -1,17 +1,15 @@
 <?php 
-require("./head.php");
-require("./pool.php");
-//require("./input.php");
-//require("./database.php");
+require_once __DIR__ . 'head.php';
+require_once __DIR__ . 'pool.php';
+require_once __DIR__ . 'database.php';
 class controller{
-	public $bootDate,$bootTime;
-	public $poolUnit,$databaseUnit,$inputUnit;
+	public $bootTime;
+	public $poolUnit,$databaseUnit;
 	public $globalStatus = false;
 	public function controller(){
 		$this->poolUnit = new pool();
-//		$this->databaseUnit = new database();
-//		$this->inputUnit = new inputUnit();
-		$this->bootDate = time()/$daySegment*$daySegment;
+		$this->databaseUnit = new database();
+		$this->bootTime = time()/$daySegment*$daySegment;
 	}
 	public function clear(){
 		$this->poolUnit->clear();
@@ -27,25 +25,38 @@ class controller{
 			$this->globalStatus = true;
 			return;
 		}
+		if ($timeSegment > 16*$hourSegment && $this->globalStatus) $this->clear();
 		$this->globalStatus = false;
-		if ($timeSegment > 16*$hourSegment) $this->clear();
 	}
-	public function getInstruction(){
-	}
-	public function process(){
-//		$inputUnit->run();
-		do{
-			$this->setStatus();
-			if ($this->globalStatus){
-				$result = $this->poolUnit->addIns(getTimeStamp(),0 ,100 ,100 ,0 ,0 );
-				$result = $this->poolUnit->addIns(getTimeStamp(), 0 ,100 ,101 ,0 ,1 );
-				$result = $this->poolUnit->addIns(getTimeStamp(),0 ,100 ,100 ,0 ,1 );
-				echo $result->num."\n";
+	public function process($ins){
+		$this->setStatus();
+		if ($this->globalStatus){
+			if ($ins->getStatus() == 0 || $ins->getStatus() == 1){
+				if (!$this->databaseUnit->addHistory($ins)){
+					echo "Database error.\n";
+					return false;
+				}
+				$result = $this->pool->addIns($ins);
+				for ($i = 0; $i < $result->num; $i++){
+					if (!$this->database->addDealing($ins)){
+						echo "Database error.\n";
+						return false;
+					}
+					if (!$this->database->changeCapital($result->ins[$i])){
+						echo "Database error.\n";
+						return false;
+					}
+				}
+			}//buy or sell
+			if ($ins->getStatus() == 2){
+				if (!$databaseUnit->deleteHistory($ins->getID())){
+					echo "Database error.\n";
+					return false;
+				}
+				$this->pool->delIns($ins);
 			}
-		}while (true);
+		}
+		return true;
 	}
 }
 
-$globalController=new controller();
-$globalController->process();
-?>

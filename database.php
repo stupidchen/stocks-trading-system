@@ -1,78 +1,115 @@
 <?php
-class feedback { 
-    public function dealin($aid,$type,$code,$amount,$price) { 
-    $db = mysql_connect("121.40.194.163","sts","sts2015");
-    if(!$db)
-    {
-    die('连接失败！'.mysql_error());
-    }
-    mysql_select_db("sts", $db);
-
-	$Date=date("Y-m-d h:i:s");
-        $Date1 = date("Y-m-d h:i:s", strtotime("$Date"));
-
-	    $sql1="select max(aid) from Stock _Deal";
-                $result1=mysql_query($sql1);
-                $row3=mysql_fetch_array($result1);
-                $a=1;
-                $s7=$row3['max(aid)']+$a;
-		$sql2="insert into Stock _Deal(did, aid, type, code, amount, price, dealtime ) values ('$s7',  '$aid', '$type', '$code', '$amount', '$price', '$Date1')";
-                if(mysql_query($sql2))
-	        {
-		    header('Location:dealsucceed.php');
-	         }
-
-	        else
-	        {
-		    header('Location:dealfailed.php');
-	        }	
-    }
-     
-protected function delete($iid) { 
-    $db=mysql_connect("121.40.194.163","sts","sts2015");
-    if(!$db)
-    {
-    die('连接失败！'.mysql_error());
-    }
-    mysql_select_db("sts",$db);
-    $sql="select * from Stock _Deal_History where iid = '$iid'";
-	$result=mysql_query($sql);
-	$i=1;
-	while($row=mysql_fetch_array($result))
-	{	
-		$i=0;
-		mysql_query("delete from Stock _Deal_History where iid = '$s1'");
-		header('Location:deletesucceed.php');
+class database { 
+	$private connection;
+	public function database($address, $dbName, $tableName){
+		$this->connection = mysql_connect($address, $dbName, $tableName);
 	}
-if($i ==1)
-	header('Location:deletefailed.php');
-    }
-}
+/*	public function clear(){
+		$db = $connection;
+    		if(!$db) die('Database connect failed.'.mysql_error());
+    		mysql_select_db("sts", $db);
+		$sqlQuery = "delete * from Stock_Deal_History";
+*/	}
+	public function close(){
+		mysql_close($this->connection);
+	}
+    	public function addHistory(&$ins){ 
+		$time = $ins->time;
+		$aid = $ins->aid;
+		$type = $ins->status;
+		$code = $ins->code;
+		$amount = $ins->amount;
+		$price = $ins->price;
+
+    		$db = $this->connection;
+    		if(!$db) return false;
+    		mysql_select_db("sts", $db);
+
+        	$Date = date("Y-m-d h:i:s", strtotime("$time"));
+
+	    	$sql1 = "select max(iid) from Stock_Deal_History";
+                $result1 = mysql_query($sql1);
+                $row3 = mysql_fetch_array($result1);
+                $a = 1;
+                $iid = $row3['max(iid)']+$a;
+		$sql2 = "insert into Stock_Deal_History(iid, aid, type, code, amount, price, dealtime ) values ($iid,  $aid, $type, $code, $amount, $price, $Date)";
+                if(mysql_query($sql2)){
+			$ins->id = $iid;
+			return true;
+		}
+	        else return false;
+    	}
+
+    	public function addDealing($ins) { 
+		$iid = $ins->iid;
+		$time = $ins->time;
+		$aid = $ins->aid;
+		$type = $ins->status;
+		$code = $ins->code;
+		$amount = $ins->amount;
+		$price = $ins->price;
+    		$db = $this->connection;
+
+    		if(!$db) return false;
+    		mysql_select_db("sts", $db);
+
+        	$Date = date("Y-m-d h:i:s", strtotime("$time"));
+
+                $result1 = mysql_query($sql1);
+                $row3 = mysql_fetch_array($result1);
+                $a = 1;
+                $did = $row3['max(did)']+$a;
+		$sql2 = "insert into Stock_Deal(did, iid, aid, type, code, amount, price, dealtime ) values ($did, $iid, $aid, $type, $code, $amount, $price, $Date1)";
+                if(mysql_query($sql2)) return true;
+	        else return false;
+    	}
+     
+     
+	protected function deleteHistory($iid) { 
+    		$db = $this->connection;
+    		if(!$db) return false;
+    		mysql_select_db("sts",$db);
+	    	$sql = "select * from Stock_Deal_History where iid = $iid";
+		$result = mysql_query($sql);
+		$i = 1;
+		while ($row = mysql_fetch_array($result))
+		{	
+			$i=0;
+			if (!mysql_query("delete * from Stock_Deal_History where iid = $s1")) return false;
+		}
+		return true;
+	}
     
-protected function deductmoney($aid,$price,$amount) {
-     $db=mysql_connect("121.40.194.163","sts","sts2015");
-     if(!$db)
-    {
-    die('连接失败！'.mysql_error());
-    }
-    mysql_select_db("sts",$db);
-    $sql="select * from Capital_Repo where aid = '$aid'";
-	$result=mysql_query($sql);
-	while($row=mysql_fetch_array($result))
-	{	
-		
-			$sql1="update Capital_Repo set frozen=frozen-（$price*$amount） where aid = '$aid' ";
-			$sql2="update Capital_Repo set currency=currency-（$price*$amount）where aid = '$aid' ";
+	protected function changeCapital($ins){
+		$iid = $ins->iid;
+		$time = $ins->time;
+		$aid = $ins->aid;
+		$type = $ins->status;
+		$code = $ins->code;
+		$amount = $ins->amount;
+		$price = $ins->price;
+		$
 
-                        if(mysql_query($sql1) && mysql_query($sql2))
-	                {
-		             header('Location:deductssucceed.php');
-	                 }
+    		$db = $this->connection;
+    		if(!$db) return false;
+    		mysql_select_db("sts",$db);
+    		$sql = "select * from Capital_Repo where aid = $aid";
+		$result = mysql_query($sql);
+		if ($type == 0){
+			while($row = mysql_fetch_array($result)){	
+				$sql1 = "update Capital_Repo set captial=captial-($price*$amount) where aid = '$aid' ";
 
-	                else
-	                {
-		             header('Location:deductfailed.php');
-	                 }	           
+				if (!mysql_query($sql1)) return false;
+			}
+		}
+		else{
+			while($row = mysql_fetch_array($result)){	
+				$sql1 = "update Capital_Repo set captial=captial+($price*$amount) where aid = '$aid' ";
+
+				if (!mysql_query($sql1)) return false;
+			}
+		}
+		return true;
 	}
 
  }

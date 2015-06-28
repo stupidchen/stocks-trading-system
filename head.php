@@ -8,4 +8,3 @@ function getTimeStamp(){
 	list($msec,$sec)=explode(" ",$timeNow);
 	return ((float)$msec + (float)$sec);
 }
-?>

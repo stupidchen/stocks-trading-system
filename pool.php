@@ -8,28 +8,33 @@ class information{
 	}
 }
 class instructions{
-	public $time, $id, $amount, $price;
-	public function instructions($allIns){
-		$this->time = $allIns->time;
-		$this->id = $allIns->id;
-		$this->amount = $allIns->amount;
-		$this->price = $allIns->price;
+	public $time, $id, $code, $amount, $price, $status, $msec, $total;
+	public function instructions($time = NULL, $aid = NULL, $code = NULL, $amount = NULL, $price = NULL, $status = NULL, $total = (float)$price*$amount){
+		$this->time = $time;
+		$this->aid = $aid;
+		$this->code = $code;
+		$this->amount = $amount;
+		$this->price = (float)$price;
+		$this->status = $status;
+		$this->msec = getTimeStamp();
+		$this->total = $total;
+	}
+	public function getStatus(){
+		return $this->status;
+	}
+	public function setID($id){
+		$this->id = $id;
+	}
+	public function getID(){
+		return $this->id;
+	}
+	public function setTime($time){
+		$this->time = $time;
 	}
 	public function compare($another = NULL){ //this>data?true:false
 		if ($this->price > $another->price) return true;
-		if ($this->time < $another->time) return true;
+		if ($this->msec < $another->msec) return true;
 		return false;
-	}
-}
-class allInstructions{
-	public $time, $id, $code, $amount, $price, $status;
-	public function allInstructions($time = NULL, $id = NULL, $code = NULL, $amount = NULL, $price = NULL, $status = NULL){
-		$this->time = $time;
-		$this->id = $id;
-		$this->code = $code;
-		$this->amount = $amount;
-		$this->price = $price;
-		$this->status = $status;
 	}
 }
 class node{
@@ -52,19 +57,15 @@ class node{
 	}
 }
 class tradeResult{
-	public $amount, $price, $insID;
-	public $num;
+	public $ins, $num;
 	public function tradeResult(){
-		$this->insID = array();
-		$this->amount = array();
-		$this->price = array();
+		$this->ins = array();
 		$this->num = 0;
 	}
-	public function addResult($amount_0, $price_0, $insID_0){
-		$this->insID[$this->num] = $insID_0;
-		$this->amount[$this->num] = $amount_0;
-		$this->price[$this->num] = $price_0;
+	public function addResult($amount, $price, $ins, $total = $amount*$price){
+		$this->ins[$this->num] = new instructions(time(), $ins->id, $ins->code, $amount, $price, $ins->status, $total);
 		$this->num++;
+		
 	}
 }
 function getMin($x, $y){
@@ -156,7 +157,7 @@ class treap{
 		if ($node->getData()->price <= $otherIns->getData()->price){
 			$tempAmount = getMin($node->getData()->amount, $otherIns->getData()->amount);
 			$tempPrice = ($node->getData()->price + $otherIns->getData()->price)/2;
-			$result->addResult($tempAmount, $tempPrice, $node->getData()->id);
+			$result->addResult($tempAmount, $tempPrice, $node->getData());
 
 			$node->getData()->amount -= $tempAmount;
 			$otherIns->getData()->amount -= $tempAmount;
@@ -177,7 +178,7 @@ class treap{
 		if ($node->getData()->price >= $otherIns->getData()->price){
 			$tempAmount = getMin($node->getData()->amount, $otherIns->getData()->amount);
 			$tempPrice = ($node->getData()->price + $otherIns->getData()->price)/2;
-			$result->addResult($tempAmount, $tempPrice, $node->getData()->id);
+			$result->addResult($tempAmount, $tempPrice, $node->getData());
 
 			$node->getData()->amount -= $tempAmount;
 			$otherIns->getData()->amount -= $tempAmount;
@@ -213,11 +214,10 @@ class stock{
 				$tempAmount=0;
 				$tempPrice=0;	
 				for ($i = 0; $i < $result->num; $i++){
-					$tempAmount += $result->amount[$i];
-					$tempPrice += ($result->amount[$i])*($result->price[$i]);
+					$tempAmount += $result->ins[$i]->amount;
+					$tempPrice += $result->ins[$i]->total;
 				}
-				$tempPrice /= $tempAmount;
-				$result->addResult($tempAmount, $tempPrice, $newIns->id);
+				$result->addResult($tempAmount, (float)$tempPrice/$tempAmount, $newIns, $tempPrice);
 				$this->sellIns->changeFinishedIns($this->sellIns->root);
 				$this->buyIns->changeFinishedIns($this->buyIns->root);
 			}
@@ -240,8 +240,7 @@ class stock{
 					$tempAmount += $result->amount[$i];
 					$tempPrice += ($result->amount[$i])*($result->price[$i]);
 				}
-				$tempPrice /= $tempAmount;
-				$result->addResult($tempAmount, $tempPrice, $newIns->id);
+				$result->addResult($tempAmount, (float)$tempPrice/$tempAmount, $newIns->id, $tempPrice);
 				$this->sellIns->changeFinishedIns($this->sellIns->root);
 				$this->buyIns->changeFinishedIns($this->buyIns->root);
 			}
@@ -273,7 +272,7 @@ class pool{
 			$this->stock_ins[$i] = new stock($i);
 		}
 	}
-	public function addInstruction($tempInstruction){//status 0:buy 1:sell 2:delete 3:pause 4:restart
+	public function addIns($tempInstruction){//status 0:buy 1:sell 2:delete
 		$result=new tradeResult();
 		if (!$this->stock_ins[$code]->useful) return $result;
 		$newIns=new instructions($tempInstruction);
@@ -281,7 +280,7 @@ class pool{
 		else $result = $this->stock_ins[$code]->addSellIns($newIns);
 		return $result;
 	}
-	public function deleteInstruction($tempInstruction){
+	public function deleteIns($tempInstruction){
 		$newIns=new instructions($tempInstruction);
 		return $this->stock_ins[$code]->deleteIns($newIns);
 	}

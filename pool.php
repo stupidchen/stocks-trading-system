@@ -1,4 +1,9 @@
 <?php
+function addLog($msg){
+	$file = 'system.log';
+	$time = date("[Y-m-d h:i:s] ",time());
+	file_put_contents($file,$time.$msg."\n", FILE_APPEND);
+}
 function getTimeStamp(){
 	$timeNow=microTime();
 	list($msec,$sec)=explode(" ",$timeNow);
@@ -13,9 +18,10 @@ class information{
 	}
 }
 class instructions{
-	public $time, $id, $code, $amount, $price, $status, $msec, $total;
-	public function instructions($time = NULL, $aid = NULL, $code = NULL, $amount = NULL, $price = NULL, $status = NULL, $total = NULL){
+	public $time, $id, $aid, $code, $amount, $price, $status, $msec, $total;
+	public function instructions($time = NULL, $id = NULL, $aid = NULL, $code = NULL, $amount = NULL, $price = NULL, $status = NULL, $total = NULL){
 		$this->time = $time;
+		$this->id = $id;
 		$this->aid = $aid;
 		$this->code = $code;
 		$this->amount = $amount;
@@ -23,7 +29,7 @@ class instructions{
 		$this->status = $status;
 		$this->msec = getTimeStamp();
 		if ($total != NULL) $this->total = $total;
-		else $total->total = $price*$amount;
+		else $this->total = $price*$amount;
 	}
 	public function getStatus(){
 		return $this->status;
@@ -280,15 +286,17 @@ class pool{
 		}
 	}
 	public function addIns($tempInstruction){//status 0:buy 1:sell 2:delete
+		addLog("PoolUnit:Start to add instruction.");
 		$result=new tradeResult();
 		if (!$this->stock_ins[$code]->useful) return $result;
-		$newIns=new instructions($tempInstruction);
+		$newIns=$tempInstruction;
 		if ($status == 0) $result = $this->stock_ins[$code]->addBuyIns($newIns);
 		else $result = $this->stock_ins[$code]->addSellIns($newIns);
 		return $result;
 	}
 	public function deleteIns($tempInstruction){
-		$newIns=new instructions($tempInstruction);
+		addLog("PoolUnit:Start to delete instruction.");
+		$newIns=$tempInstruction;
 		return $this->stock_ins[$code]->deleteIns($newIns);
 	}
 	public function changeStatus($tempInstruction){

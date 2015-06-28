@@ -8,18 +8,23 @@ const hourSegment = 3600;
 class controller{
 	public $bootTime;
 	public $poolUnit,$databaseUnit;
-	public $globalStatus = false;
+	public $globalStatus;
 	public function controller(){
 		$this->poolUnit = new pool();
 		$this->databaseUnit = new database();
 		$this->bootTime = time()/daySegment*daySegment;
+		$this->globalStatus = false;
 	}
 	public function clear(){
 		$this->poolUnit->clear();
 	}
-	public function setStatus(){
-		$timeNow = time() % $daySegment;
-		$timeSegment = $timeNow-$bootDate;
+	public function setStatus($status = NULL){
+		if ($status != NULL){
+			$this->globalStatus = $status;
+			return;
+		}
+		$timeNow = time() % daySegment;
+		$timeSegment = $timeNow-$this->bootTime;
 		if ($timeSegment > 9*hourSegment+30 && $timeSegment < 11*hourSegment+30){
 			$this->globalStatus = true;
 			return;
@@ -28,35 +33,41 @@ class controller{
 			$this->globalStatus = true;
 			return;
 		}
-		if ($timeSegment > 16*hourSegment && $this->globalStatus) $this->clear();
+		if (($timeSegment > 16*hourSegment) && $this->globalStatus) $this->clear();
 		$this->globalStatus = false;
 	}
 	public function process($ins){
-		$this->setStatus();
+		addLog("Controller:Processing...");
+		$this->setStatus(true);
+		if ($this->globalStatus) addLog("Controller:Pool is opened");
+		else addLog("Controller:Pool is closed");
 		if ($this->globalStatus){
 			if ($ins->getStatus() == 0 || $ins->getStatus() == 1){
 				if (!$this->databaseUnit->addHistory($ins)){
-					echo "Database error.\n";
+					addLog('Controller:Database[history] error.');
 					return false;
 				}
-				$result = $this->pool->addIns($ins);
+				addLog('Controller:Adding instruction to pool...');
+				$result = $this->poolUnit->addIns($ins);
+				addLog("Controller:$result->num trades matching. ");
 				for ($i = 0; $i < $result->num; $i++){
 					if (!$this->database->addDealing($ins)){
-						echo "Database error.\n";
+						addLog('Controller:Database[Deal] error.');
 						return false;
 					}
 					if (!$this->database->changeCapital($result->ins[$i])){
-						echo "Database error.\n";
+						addLog('Controller:Database[Capital] error.');
 						return false;
 					}
 				}
 			}//buy or sell
 			if ($ins->getStatus() == 2){
 				if (!$databaseUnit->deleteHistory($ins->getID())){
-					echo "Database error.\n";
+					addLog("Controller:Database error.");
 					return false;
 				}
-				$this->pool->delIns($ins);
+				addLog('Controller:Deleting instruction to pool...');
+				$this->poolUnit->delIns($ins);
 			}
 		}
 		return true;
@@ -65,4 +76,6 @@ class controller{
 		$this->clear();
 	}
 }
-
+//$temp = new instructions();
+//$testController = new controller();
+//$testController->process($temp);

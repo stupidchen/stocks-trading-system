@@ -1,8 +1,9 @@
 <?php
 class database{ 
-	private $connection;
 	public function database(){
-		$this->connection = mysql_connect('121.40.194.163', 'sts', 'sts2015');
+	}
+	public function connect(){
+		return mysql_connect('121.40.194.163:3306', 'sts', 'sts2015');
 	}
 /*	public function clear(){
 		$db = $connection;
@@ -14,46 +15,54 @@ class database{
 		mysql_close($this->connection);
 	}
     	public function addHistory(&$ins){ 
+		addLog('DatabaseUnit:Connecting...');
 		$time = $ins->time;
 		$aid = $ins->aid;
-		$type = $ins->status;
+		$type = $ins->status+1;
 		$code = $ins->code;
 		$amount = $ins->amount;
 		$price = $ins->price;
 
-    		$db = $this->connection;
-    		if(!$db) return false;
-    		mysql_select_db("sts", $db);
-
-        	$Date = date("Y-m-d h:i:s", strtotime("$time"));
+    		$db = $this->connect();
+    		if(!$db){
+			addLog('DatabaseUnit:Connect failed! '.mysql_error());
+			return false;
+		}
+    		mysql_select_db("STS", $db);
 
 	    	$sql1 = "select max(iid) from Stock_Deal_History";
                 $result1 = mysql_query($sql1);
                 $row3 = mysql_fetch_array($result1);
                 $a = 1;
                 $iid = $row3['max(iid)']+$a;
-		$sql2 = "insert into Stock_Deal_History(iid, aid, type, code, amount, price, dealtime ) values ($iid,  $aid, $type, $code, $amount, $price, $Date)";
+		$sql2 = "insert into Stock_Deal_History(iid, aid, type, code, i_amount, i_price,  receive_time) values ('$iid', '$aid', $type, $code, $amount, $price, '$time')";
                 if(mysql_query($sql2)){
 			$ins->id = $iid;
 			return true;
 		}
-	        else return false;
+	        else{
+			addLog('DatabaseUnit:Add failed! '.mysql_error()."\nQuery:$sql2");
+			return false;
+		}
     	}
 
     	public function addDealing($ins) { 
 		$iid = $ins->iid;
 		$time = $ins->time;
 		$aid = $ins->aid;
-		$type = $ins->status;
+		$type = $ins->status+1;
 		$code = $ins->code;
 		$amount = $ins->amount;
 		$price = $ins->price;
-    		$db = $this->connection;
 
-    		if(!$db) return false;
-    		mysql_select_db("sts", $db);
+    		$db = $this->connect();
+    		if(!$db){
+			addLog('DatabaseUnit:Connect failed! '.mysql_error());
+			return false;
+		}
+    		mysql_select_db("STS", $db);
 
-        	$Date = date("Y-m-d h:i:s", strtotime("$time"));
+        	$Date = date("Y-m-d h:i:s", $time);
 
                 $result1 = mysql_query($sql1);
                 $row3 = mysql_fetch_array($result1);
@@ -66,9 +75,13 @@ class database{
      
      
 	protected function deleteHistory($iid) { 
-    		$db = $this->connection;
-    		if(!$db) return false;
+    		$db = $this->connect();
+    		if(!$db){
+			addLog('DatabaseUnit:Connect failed! '.mysql_error());
+			return false;
+		}
     		mysql_select_db("sts",$db);
+
 	    	$sql = "select * from Stock_Deal_History where iid = $iid";
 		$result = mysql_query($sql);
 		$i = 1;
@@ -84,14 +97,16 @@ class database{
 		$iid = $ins->iid;
 		$time = $ins->time;
 		$aid = $ins->aid;
-		$type = $ins->status;
+		$type = $ins->status+1;
 		$code = $ins->code;
 		$amount = $ins->amount;
 		$price = $ins->price;
-		$
 
-    		$db = $this->connection;
-    		if(!$db) return false;
+    		$db = $this->connect();
+    		if(!$db){
+			addLog('DatabaseUnit:Connect failed! '.mysql_error());
+			return false;
+		}
     		mysql_select_db("sts",$db);
     		$sql = "select * from Capital_Repo where aid = $aid";
 		$result = mysql_query($sql);

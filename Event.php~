@@ -41,7 +41,7 @@ class Event
 		'code'=>$message_data['code'],
 		'amount'=>$message_data['amount'],
 		'price'=>$message_data['price'],
-		'time'=>$time,
+		'time'=>$message_data['time'],
 	);
 
 	addLog('Gateway:Instruction format checking finished!');

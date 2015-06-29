@@ -14,6 +14,7 @@ class controller{
 		$this->databaseUnit = new database();
 		$this->bootTime = time()/daySegment*daySegment;
 		$this->globalStatus = false;
+		clearLog();
 	}
 	public function clear(){
 		$this->poolUnit->clear();
@@ -51,18 +52,18 @@ class controller{
 				$result = $this->poolUnit->addIns($ins);
 				addLog("Controller:$result->num trades matching. ");
 				for ($i = 0; $i < $result->num; $i++){
-					if (!$this->database->addDealing($ins)){
+					if (!$this->databaseUnit->addDealing($result->ins[$i])){
 						addLog('Controller:Database[Deal] error.');
 						return false;
 					}
-					if (!$this->database->changeCapital($result->ins[$i])){
+					if (!$this->databaseUnit->changeCapital($result->ins[$i])){
 						addLog('Controller:Database[Capital] error.');
 						return false;
 					}
 				}
 			}//buy or sell
 			if ($ins->getStatus() == 2){
-				if (!$databaseUnit->deleteHistory($ins->getID())){
+				if (!$this->databaseUnit->deleteHistory($ins->getID())){
 					addLog("Controller:Database error.");
 					return false;
 				}

@@ -33,6 +33,6 @@ $gateway->count = 4;
 $gateway->lanIp = '127.0.0.1';
 $gateway->startPort = 2000;
 $gateway->pingInterval = 10;
-$gateway->pingData = '{"type":"ping"}';
+$gateway->pingData = '';
 
 Worker::runAll();

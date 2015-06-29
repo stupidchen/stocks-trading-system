@@ -4,7 +4,7 @@ use \GatewayWorker\Lib\Db;
 class Event
 {
    public static function onMessage($client_id, $message){
-	$time=date("Y:m:d H:i:s");//进入时间,精确到秒
+	$time=date("Y-m-d H:i:s");//进入时间,精确到秒
 //	$message_data = $message;
 	$message_data = json_decode($message, true);//解码
 	addLog('Gateway:Received message!');

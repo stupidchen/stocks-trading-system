@@ -1,8 +1,12 @@
 <?php
-function addLog($msg){
+function addLog($msg, $enable = true){
 	$file = 'system.log';
 	$time = date("[Y-m-d h:i:s] ",time());
 	file_put_contents($file,$time.$msg."\n", FILE_APPEND);
+}
+function clearLog(){
+	$file = 'system.log';
+	file_put_contents($file, "");
 }
 function getTimeStamp(){
 	$timeNow=microTime();
@@ -45,8 +49,12 @@ class instructions{
 	}
 	public function compare($another = NULL){ //this>data?true:false
 		if ($this->price > $another->price) return true;
+		if ($this->price < $another->price) return false;
 		if ($this->msec < $another->msec) return true;
 		return false;
+	}
+	public function display(){
+		addLog("time:$this->time, id:$this->id, aid:$this->aid, code:$this->code, amount:$this->amount, price:$this->price, status:$this->status, msec:$this->msec");
 	}
 }
 class node{
@@ -67,6 +75,10 @@ class node{
 	public function getData(){
 		return $this->data;
 	}
+	public function display($number = NULL){
+		$data = $this->getData();
+		addLog("$number: time:$data->time, id:$data->id, aid:$data->aid, code:$data->code, amount:$data->amount, price:$data->price, status:$data->status, msec:$data->msec  level:$this->level");
+	}
 }
 class tradeResult{
 	public $ins, $num;
@@ -76,9 +88,14 @@ class tradeResult{
 	}
 	public function addResult($amount, $price, $ins, $total = NULL){
 		if ($total == NULL) $total = $amount*$price;
-		$this->ins[$this->num] = new instructions(time(), $ins->id, $ins->code, $amount, $price, $ins->status, $total);
+		addLog("PoolUnit:Adding Result");
+		$time = date("Y-m-d h:i:s");
+		$id = $ins->id;
+		$aid = $ins->aid;
+		$code = $ins->code;
+		$status = $ins->status;
+		$this->ins[$this->num] = new instructions($time, $id, $aid, $code, $amount, $price, $status, $total);
 		$this->num++;
-		
 	}
 }
 function getMin($x, $y){
@@ -92,36 +109,58 @@ class treap{
 		$this->nodeNum = 0;
 	}
 	public function left_rotate(&$node){
-		$temp = &$node->left;
-		$node->left = &$temp->right;
-		$temp->right = &$node;
-		$node = &$temp;
+		$temp = $node->right;
+		$node->right = $temp->left;
+		$temp->left = $node;
+		$node = $temp;
 	}
 	public function right_rotate(&$node){
-		$temp = &$node->right;
-		$node->right = &$temp->left;
-		$temp->left = &$node;
-		$node = &$temp;
+		$temp = $node->left;
+		$node->left = $temp->right;
+		$temp->right = $node;
+		$node = $temp;
 	}
-	public function addIns(&$node, $info){
+	public function addBuyIns(&$node, $info){
 		if ($node == NULL){
 			$node = $info;
 			$this->nodeNum++;
+			addLog("Treap[buy]:$this->nodeNum node add finished. ");
 			return;
 		}
-		if ($node->compare($info)){
-			$this->addIns($node->left, $info);
+		if (!$node->compare($info)){
+			addLog("Treap[buy]:add a node to the left subtree. ");
+			$this->addBuyIns($node->left, $info);
 			if ($node->level > $node->left->level) $this->right_rotate($node);
 		}
 		else{
-			$this->addIns($node->right, $info);
+			addLog("Treap[buy]:add a node to the right subtree. ");
+			$this->addBuyIns($node->right, $info);
 			if ($node->level > $node->right->level) $this->left_rotate($node);
 		}
 	}
-	public function deleteIns(&$node, $info){
+	public function addSellIns(&$node, $info){
+		if ($node == NULL){
+			$node = $info;
+			$this->nodeNum++;
+			addLog("Treap[sell]:$this->nodeNum node add finished. ");
+			return;
+		}
+		if ($node->compare($info)){
+			addLog("Treap[sell]:add a node to the left subtree. ");
+			$this->addSellIns($node->left, $info);
+			if ($node->level > $node->left->level) $this->right_rotate($node);
+		}
+		else{
+			addLog("Treap[sell]:add a node to the right subtree. ");
+			$this->addSellIns($node->right, $info);
+			if ($node->level > $node->right->level) $this->left_rotate($node);
+		}
+	}
+	public function deleteBuyIns(&$node, $info){
 		if ($node == NULL) return false;
 		if ($node->getData()->id == $info->id && $node->getData()->price == $info->price){
 			$temp = NULL;
+			$this->nodeNum--;
 			if ($node->left !=  NULL) $temp = $node->left;
 			if ($node->right != NULL && ($temp == NULL || $node->right->getData()->level < $temp->getData()->level)) $temp = $node->right;
 
@@ -131,19 +170,45 @@ class treap{
 			} 
 			if ($temp == $node->left){
 				$this->left_rotate($node);
-				return deleteIns($node->left, $id, $price);
+				return deleteBuyIns($node->left, $id, $price);
 			}
 			if ($temp == $node->right){
 				$this->right_rotate($node);
-				return deleteIns($node->right, $id, $price);
+				return deleteBuyIns($node->right, $id, $price);
 			}
 		}
 		else{
-			if ($node->getData()->compare($info)) return deleteIns($node->left, $info);
-			else return deleteIns($node->right, $info);
+			if (!$node->getData()->compare($info)) return deleteBuyIns($node->left, $info);
+			else return deleteBuyIns($node->right, $info);
 		}
 	}
-	public function getFirstIns($node){
+	public function deleteSellIns(&$node, $info){
+		if ($node == NULL) return false;
+		if ($node->getData()->id == $info->id && $node->getData()->price == $info->price){
+			$temp = NULL;
+			$this->nodeNum--;
+			if ($node->left !=  NULL) $temp = $node->left;
+			if ($node->right != NULL && ($temp == NULL || $node->right->getData()->level < $temp->getData()->level)) $temp = $node->right;
+
+			if ($temp == NULL){
+				$node = NULL;
+				return true;
+			} 
+			if ($temp == $node->left){
+				$this->left_rotate($node);
+				return deleteSellIns($node->left, $id, $price);
+			}
+			if ($temp == $node->right){
+				$this->right_rotate($node);
+				return deleteSellIns($node->right, $id, $price);
+			}
+		}
+		else{
+			if ($node->getData()->compare($info)) return deleteSellIns($node->left, $info);
+			else return deleteSellIns($node->right, $info);
+		}
+	}
+	public function getFirstIns(&$node){
 		if ($node->left == NULL) return $node;
 		return ($this->getFirstIns($node->left));
 	}
@@ -152,9 +217,9 @@ class treap{
 			if (!$this->changeFinishedIns($node->left)) return false;
 		}
 		if ($node->getData()->amount == 0){
+			$this->nodeNum--;
 			if ($node->right == NULL){
 				$node=NULL;
-				$this->nodeNum--;
 				return true;
 			}
 			$node=$node->right;
@@ -164,12 +229,14 @@ class treap{
 	}
 	public function matchBS(&$node, &$otherIns, &$result){ //node:Sell otherIns:Buy
 		if ($node == NULL) return false;
+		addLog("Pool:Matching the buy instruction to sells. ");
 		if ($node->left != NULL)
 			if (!$this->matchBS($node->left, $otherIns, $result)) return false;
 
 		if ($node->getData()->price <= $otherIns->getData()->price){
 			$tempAmount = getMin($node->getData()->amount, $otherIns->getData()->amount);
 			$tempPrice = ($node->getData()->price + $otherIns->getData()->price)/2;
+			addLog("Pool:Matching Success! amount:$tempAmount price:$tempPrice");
 			$result->addResult($tempAmount, $tempPrice, $node->getData());
 
 			$node->getData()->amount -= $tempAmount;
@@ -185,12 +252,14 @@ class treap{
 	}
 	public function matchSB(&$node, &$otherIns, &$result){ //node:Buy otherIns:Sell
 		if ($node == NULL) return false;
+		addLog("Pool:Matching the sell instruction to buys. ");
 		if ($node->left != NULL)
 			if (!$this->matchSB($node->left, $otherIns, $result)) return false;
 
 		if ($node->getData()->price >= $otherIns->getData()->price){
 			$tempAmount = getMin($node->getData()->amount, $otherIns->getData()->amount);
 			$tempPrice = ($node->getData()->price + $otherIns->getData()->price)/2;
+			addLog("Pool:Matching Success! amount:$tempAmount price:$tempPrice");
 			$result->addResult($tempAmount, $tempPrice, $node->getData());
 
 			$node->getData()->amount -= $tempAmount;
@@ -204,6 +273,18 @@ class treap{
 
 		return true;
 	}
+	public function display($node,$number){
+		if ($node != NULL){
+			if ($node->left != NULL) $left = $number*2;
+			else $left = -1;
+			if ($node->right != NULL) $right = $number*2+1;
+			else $right = -1;
+			addLog("Treap[display]:  $number: $left $right");
+			if ($node->left != NULL) $this->display($node->left, $number*2);
+			$node->display($number);
+			if ($node->right != NULL) $this->display($node->right, $number*2+1);
+		}
+	}
 }
 class stock{
 	private $buyIns, $sellIns;
@@ -216,9 +297,11 @@ class stock{
 		$this->useful = true;
 	}
 	public function addBuyIns($newIns){
+		addLog("PoolUnit:Add buy instruction to stock. Code:$newIns->code ");
 		$newNode = new node($newIns);
-		$this->buyIns->addIns($this->buyIns->root,$newNode);
+		$this->buyIns->addBuyIns($this->buyIns->root,$newNode);
 		$temp = $this->buyIns->getFirstIns($this->buyIns->root);
+		$this->buyIns->display($this->buyIns->root,1);
 		$tempData = $temp->getData();
 		if ($tempData->id == $newIns->id){
 			$result=new tradeResult();
@@ -230,7 +313,8 @@ class stock{
 					$tempAmount += $result->ins[$i]->amount;
 					$tempPrice += $result->ins[$i]->total;
 				}
-				$result->addResult($tempAmount, (float)$tempPrice/$tempAmount, $newIns, $tempPrice);
+				addLog("Pool:Matching Success! amount:$tempAmount price:$tempPrice/$tempAmount");
+				$result->addResult($tempAmount, $tempPrice/$tempAmount, $newIns, $tempPrice);
 				$this->sellIns->changeFinishedIns($this->sellIns->root);
 				$this->buyIns->changeFinishedIns($this->buyIns->root);
 			}
@@ -238,9 +322,11 @@ class stock{
 		return $result;
 	}
 	public function addSellIns($newIns){
+		addLog("PoolUnit:Add sell instruction to stock. Code:$newIns->code ");
 		$newNode = new node($newIns);
-		$this->sellIns->addIns($this->sellIns->root,$newNode);
+		$this->sellIns->addSellIns($this->sellIns->root,$newNode);
 		$temp = $this->buyIns->getFirstIns($this->sellIns->root);
+		$this->sellIns->display($this->sellIns->root,1);
 		$tempData = $temp->getData();
 		if ($tempData->id == $newIns->id){
 			$result=new tradeResult();
@@ -250,10 +336,11 @@ class stock{
 				$tempAmount=0;
 				$tempPrice=0;	
 				for ($i = 0; $i < $result->num; $i++){
-					$tempAmount += $result->amount[$i];
-					$tempPrice += ($result->amount[$i])*($result->price[$i]);
+					$tempAmount += $result->ins[$i]->amount;
+					$tempPrice += $result->ins[$i]->total;
 				}
-				$result->addResult($tempAmount, (float)$tempPrice/$tempAmount, $newIns->id, $tempPrice);
+				addLog("Pool:Matching Success! amount:$tempAmount price:$tempPrice/$tempAmount");
+				$result->addResult($tempAmount, $tempPrice/$tempAmount, $newIns->id, $tempPrice);
 				$this->sellIns->changeFinishedIns($this->sellIns->root);
 				$this->buyIns->changeFinishedIns($this->buyIns->root);
 			}
@@ -263,44 +350,49 @@ class stock{
 		return $result;
 	}
 	public function deleteIns($newIns){
-		$result1 = $this->buyIns->deleteIns($this->buyIns->root, $newIns);
-		$result2 = $this->sellIns->deleteIns($this->buyIns->root, $newIns);
-		return ($result1 && $result2);
+		$result1 = $this->buyIns->deleteBuyIns($this->buyIns->root, $newIns);
+		$result2 = $this->sellIns->deleteSellIns($this->SellIns->root, $newIns);
+		return ($result1 || $result2);
 	}
 }
 class pool{
 	private $stock_ins;
 	private $info;
-	private $maxCode = 10000;
 
 	public function pool(){
 		$this->stock_ins = array();
-		$this->maxCode = 10000;
-		for ($i = 0; $i < $this->maxCode; $i++) $this->stock_ins[$i] = new stock($i);
 		$this->info = new information();
 	}
+	public function initStock($code){
+		$this->stock_ins[$code] = new stock($code);
+	}
 	public function clear(){
-		for ($i = 0; $i < $this->maxCode; $i++){
-			unset($this->stock_ins[$i]);
-			$this->stock_ins[$i] = new stock($i);
-		}
 	}
 	public function addIns($tempInstruction){//status 0:buy 1:sell 2:delete
 		addLog("PoolUnit:Start to add instruction.");
-		$result=new tradeResult();
-		if (!$this->stock_ins[$code]->useful) return $result;
-		$newIns=$tempInstruction;
+		$code = $tempInstruction->code;
+		if ($this->stock_ins[$code] == NULL) $this->initStock($code);
+		$result = new tradeResult();
+		$status = $tempInstruction->status;
+		if (!$this->stock_ins[$code]->useful){
+			addLog("PoolUnit:Add instruction failed. The stock $code may be froze");
+			return $result;
+		}
+		$newIns = $tempInstruction;
 		if ($status == 0) $result = $this->stock_ins[$code]->addBuyIns($newIns);
 		else $result = $this->stock_ins[$code]->addSellIns($newIns);
 		return $result;
 	}
 	public function deleteIns($tempInstruction){
 		addLog("PoolUnit:Start to delete instruction.");
-		$newIns=$tempInstruction;
+		$code = $tempInstruction->code;
+		$newIns = $tempInstruction;
 		return $this->stock_ins[$code]->deleteIns($newIns);
 	}
 	public function changeStatus($tempInstruction){
-		if ($tempInstruction->status == 3){
+		$code = $tempInstruction->code;
+		$status = $tempInstruction->status;
+		if ($status == 3){
 			$temp = false^$this->stock_ins[$code]->status;
 			$this->stock_ins[$code]->status = false;
 		}

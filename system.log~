@@ -1,265 +1,60 @@
-[2015-06-29 03:04:05] Booting...
-[2015-06-29 03:04:51] Booting...
-[2015-06-29 03:04:56] Gateway:Received message!
-[2015-06-29 03:04:56] Gateway:Start to dividing the instruction!
-[2015-06-29 03:04:56] Gateway:Instruction format checking finished!
-[2015-06-29 03:04:56] Gateway:select max_raise success
-[2015-06-29 03:04:56] Gateway:Start sending message to worker!
-[2015-06-29 03:04:56] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:04:56] Worker:Received message!
-[2015-06-29 03:04:56] Worker:Prepare to process the instruction!
-[2015-06-29 03:04:56] Controller:Processing...
-[2015-06-29 03:04:56] Controller:Pool is opened
-[2015-06-29 03:04:56] Controller:Database error.
-[2015-06-29 03:05:58] Booting...
-[2015-06-29 03:06:00] Booting...
-[2015-06-29 03:06:04] Gateway:Received message!
-[2015-06-29 03:06:04] Gateway:Start to dividing the instruction!
-[2015-06-29 03:06:04] Gateway:Instruction format checking finished!
-[2015-06-29 03:06:04] Gateway:select max_raise success
-[2015-06-29 03:06:04] Gateway:Start sending message to worker!
-[2015-06-29 03:06:04] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:06:04] Worker:Received message!
-[2015-06-29 03:06:04] Worker:Prepare to process the instruction!
-[2015-06-29 03:06:04] Controller:Processing...
-[2015-06-29 03:06:04] Controller:Pool is opened
-[2015-06-29 03:06:04] Controller:Database error.
-[2015-06-29 03:08:45] Booting...
-[2015-06-29 03:08:46] Booting...
-[2015-06-29 03:08:52] Gateway:Received message!
-[2015-06-29 03:08:52] Gateway:Start to dividing the instruction!
-[2015-06-29 03:08:52] Gateway:Instruction format checking finished!
-[2015-06-29 03:08:52] Gateway:select max_raise success
-[2015-06-29 03:08:53] Gateway:Start sending message to worker!
-[2015-06-29 03:08:53] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:08:53] Worker:Received message!
-[2015-06-29 03:08:53] Worker:Prepare to process the instruction!
-[2015-06-29 03:08:53] Controller:Processing...
-[2015-06-29 03:08:53] Controller:Pool is opened
-[2015-06-29 03:08:53] DatabaseUnit:Connecting...
-[2015-06-29 03:08:53] Controller:Database error.
-[2015-06-29 03:09:33] Booting...
-[2015-06-29 03:11:13] Booting...
-[2015-06-29 03:11:16] Gateway:Received message!
-[2015-06-29 03:11:16] Gateway:Start to dividing the instruction!
-[2015-06-29 03:11:16] Gateway:Instruction format checking finished!
-[2015-06-29 03:11:16] Gateway:select max_raise success
-[2015-06-29 03:11:16] Gateway:Start sending message to worker!
-[2015-06-29 03:11:16] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:11:16] Worker:Received message!
-[2015-06-29 03:11:16] Worker:Prepare to process the instruction!
-[2015-06-29 03:11:16] Controller:Processing...
-[2015-06-29 03:11:16] Controller:Pool is opened
-[2015-06-29 03:11:16] DatabaseUnit:Connecting...
-[2015-06-29 03:11:16] Controller:Database[history] error.
-[2015-06-29 03:11:28] Booting...
-[2015-06-29 03:16:28] Booting...
-[2015-06-29 03:16:35] Gateway:Received message!
-[2015-06-29 03:16:35] Gateway:Start to dividing the instruction!
-[2015-06-29 03:16:35] Gateway:Instruction format checking finished!
-[2015-06-29 03:16:35] Gateway:select max_raise success
-[2015-06-29 03:16:35] Gateway:Start sending message to worker!
-[2015-06-29 03:16:35] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:16:35] Worker:Received message!
-[2015-06-29 03:16:35] Worker:Prepare to process the instruction!
-[2015-06-29 03:16:35] Controller:Processing...
-[2015-06-29 03:16:35] Controller:Pool is opened
-[2015-06-29 03:16:35] DatabaseUnit:Connecting...
-[2015-06-29 03:16:35] Controller:Database[history] error.
-[2015-06-29 03:16:56] Booting...
-[2015-06-29 03:19:17] Booting...
-[2015-06-29 03:19:22] Gateway:Received message!
-[2015-06-29 03:19:22] Gateway:Start to dividing the instruction!
-[2015-06-29 03:19:22] Gateway:Instruction format checking finished!
-[2015-06-29 03:19:22] Gateway:select max_raise success
-[2015-06-29 03:19:22] Gateway:Start sending message to worker!
-[2015-06-29 03:19:22] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:19:22] Worker:Received message!
-[2015-06-29 03:19:22] Worker:Prepare to process the instruction!
-[2015-06-29 03:19:22] Controller:Processing...
-[2015-06-29 03:19:22] Controller:Pool is opened
-[2015-06-29 03:19:22] DatabaseUnit:Connecting...
-[2015-06-29 03:19:22] Controller:Database[history] error.
-[2015-06-29 03:19:44] Booting...
-[2015-06-29 03:23:48] Booting...
-[2015-06-29 03:23:51] Gateway:Received message!
-[2015-06-29 03:23:51] Gateway:Start to dividing the instruction!
-[2015-06-29 03:23:51] Gateway:Instruction format checking finished!
-[2015-06-29 03:23:51] Gateway:select max_raise success
-[2015-06-29 03:23:51] Gateway:Start sending message to worker!
-[2015-06-29 03:23:51] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:23:51] Worker:Received message!
-[2015-06-29 03:23:51] Worker:Prepare to process the instruction!
-[2015-06-29 03:23:51] Controller:Processing...
-[2015-06-29 03:23:51] Controller:Pool is opened
-[2015-06-29 03:23:51] DatabaseUnit:Connecting...
-[2015-06-29 03:23:51] DatabaseUnit:Add failed! MySQL server has gone away
-[2015-06-29 03:23:51] Controller:Database[history] error.
-[2015-06-29 03:33:37] Booting...
-[2015-06-29 03:33:38] Booting...
-[2015-06-29 03:33:41] Gateway:Received message!
-[2015-06-29 03:33:41] Gateway:Start to dividing the instruction!
-[2015-06-29 03:33:41] Gateway:Instruction format checking finished!
-[2015-06-29 03:33:41] Gateway:select max_raise success
-[2015-06-29 03:33:41] Gateway:Start sending message to worker!
-[2015-06-29 03:33:41] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:33:41] Worker:Received message!
-[2015-06-29 03:33:41] Worker:Prepare to process the instruction!
-[2015-06-29 03:33:41] Controller:Processing...
-[2015-06-29 03:33:41] Controller:Pool is opened
-[2015-06-29 03:33:41] DatabaseUnit:Connecting...
-[2015-06-29 03:33:41] DatabaseUnit:Add failed! MySQL server has gone away
-[2015-06-29 03:33:41] Controller:Database[history] error.
-[2015-06-29 03:35:46] Booting...
-[2015-06-29 03:35:47] Booting...
-[2015-06-29 03:35:50] Gateway:Received message!
-[2015-06-29 03:35:50] Gateway:Start to dividing the instruction!
-[2015-06-29 03:35:50] Gateway:Instruction format checking finished!
-[2015-06-29 03:35:50] Gateway:select max_raise success
-[2015-06-29 03:35:50] Gateway:Start sending message to worker!
-[2015-06-29 03:35:50] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:35:50] Worker:Received message!
-[2015-06-29 03:35:50] Worker:Prepare to process the instruction!
-[2015-06-29 03:35:50] Controller:Processing...
-[2015-06-29 03:35:50] Controller:Pool is opened
-[2015-06-29 03:35:50] DatabaseUnit:Connecting...
-[2015-06-29 03:35:50] DatabaseUnit:MySQL server has gone away
-[2015-06-29 03:35:50] DatabaseUnit:MySQL server has gone away
-[2015-06-29 03:35:50] DatabaseUnit:MySQL server has gone away
-[2015-06-29 03:35:50] DatabaseUnit:MySQL server has gone away
-[2015-06-29 03:35:50] DatabaseUnit:Add failed! MySQL server has gone away
-[2015-06-29 03:35:50] Controller:Database[history] error.
-[2015-06-29 03:36:18] Booting...
-[2015-06-29 03:36:46] Booting...
-[2015-06-29 03:36:49] Gateway:Received message!
-[2015-06-29 03:36:49] Gateway:Start to dividing the instruction!
-[2015-06-29 03:36:49] Gateway:Instruction format checking finished!
-[2015-06-29 03:36:50] Gateway:select max_raise success
-[2015-06-29 03:36:50] Gateway:Start sending message to worker!
-[2015-06-29 03:36:50] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:36:50] Worker:Received message!
-[2015-06-29 03:36:50] Worker:Prepare to process the instruction!
-[2015-06-29 03:36:50] Controller:Processing...
-[2015-06-29 03:36:50] Controller:Pool is opened
-[2015-06-29 03:36:50] DatabaseUnit:Connecting...
-[2015-06-29 03:36:50] DatabaseUnit:
-[2015-06-29 03:36:50] DatabaseUnit:MySQL server has gone away
-[2015-06-29 03:36:50] DatabaseUnit:Add failed! MySQL server has gone away
-[2015-06-29 03:36:50] Controller:Database[history] error.
-[2015-06-29 03:42:05] Booting...
-[2015-06-29 03:42:06] Booting...
-[2015-06-29 03:42:09] Gateway:Received message!
-[2015-06-29 03:42:09] Gateway:Start to dividing the instruction!
-[2015-06-29 03:42:09] Gateway:Instruction format checking finished!
-[2015-06-29 03:42:09] Gateway:select max_raise success
-[2015-06-29 03:42:09] Gateway:Start sending message to worker!
-[2015-06-29 03:42:09] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:42:09] Worker:Received message!
-[2015-06-29 03:42:09] Worker:Prepare to process the instruction!
-[2015-06-29 03:42:09] Controller:Processing...
-[2015-06-29 03:42:09] Controller:Pool is opened
-[2015-06-29 03:42:09] DatabaseUnit:Connecting...
-[2015-06-29 03:42:09] DatabaseUnit:MySQL server has gone away
-[2015-06-29 03:42:09] DatabaseUnit:Add failed! MySQL server has gone away
-[2015-06-29 03:42:09] Controller:Database[history] error.
-[2015-06-29 03:49:32] Booting...
-[2015-06-29 03:49:34] Booting...
-[2015-06-29 03:49:41] Gateway:Received message!
-[2015-06-29 03:49:41] Gateway:Start to dividing the instruction!
-[2015-06-29 03:49:41] Gateway:Instruction format checking finished!
-[2015-06-29 03:49:44] Gateway:select max_raise success
-[2015-06-29 03:49:44] Gateway:Start sending message to worker!
-[2015-06-29 03:49:44] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:49:44] Worker:Received message!
-[2015-06-29 03:49:44] Worker:Prepare to process the instruction!
-[2015-06-29 03:49:44] Controller:Processing...
-[2015-06-29 03:49:44] Controller:Pool is opened
-[2015-06-29 03:49:44] DatabaseUnit:Connecting...
-[2015-06-29 03:49:44] DatabaseUnit:
-[2015-06-29 03:49:44] DatabaseUnit:Add failed! You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '08:00:00)' at line 1
-[2015-06-29 03:49:44] Controller:Database[history] error.
-[2015-06-29 03:52:48] Booting...
-[2015-06-29 03:53:55] Booting...
-[2015-06-29 03:53:58] Gateway:Received message!
-[2015-06-29 03:53:58] Gateway:Start to dividing the instruction!
-[2015-06-29 03:53:58] Gateway:Instruction format checking finished!
-[2015-06-29 03:53:58] Gateway:select max_raise success
-[2015-06-29 03:53:58] Gateway:Start sending message to worker!
-[2015-06-29 03:53:58] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:53:58] Worker:Received message!
-[2015-06-29 03:53:58] Worker:Prepare to process the instruction!
-[2015-06-29 03:53:58] Controller:Processing...
-[2015-06-29 03:53:58] Controller:Pool is opened
-[2015-06-29 03:53:58] DatabaseUnit:Connecting...
-[2015-06-29 03:53:58] DatabaseUnit:
-[2015-06-29 03:53:58] DatabaseUnit:Add failed! You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
-[2015-06-29 03:53:58] Controller:Database[history] error.
-[2015-06-29 03:55:01] Booting...
-[2015-06-29 03:55:02] Booting...
-[2015-06-29 03:55:05] Gateway:Received message!
-[2015-06-29 03:55:05] Gateway:Start to dividing the instruction!
-[2015-06-29 03:55:05] Gateway:Instruction format checking finished!
-[2015-06-29 03:55:05] Gateway:select max_raise success
-[2015-06-29 03:55:05] Gateway:Start sending message to worker!
-[2015-06-29 03:55:05] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:55:05] Worker:Received message!
-[2015-06-29 03:55:05] Worker:Prepare to process the instruction!
-[2015-06-29 03:55:05] Controller:Processing...
-[2015-06-29 03:55:05] Controller:Pool is opened
-[2015-06-29 03:55:05] DatabaseUnit:Connecting...
-[2015-06-29 03:55:05] DatabaseUnit:
-[2015-06-29 03:55:05] DatabaseUnit:Add failed! You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
-Query:insert into Stock_Deal_History(iid, aid, type, code, amount, price, dealtime ) values ('567', '132', 1, 600100, 1, 100, )
-[2015-06-29 03:55:05] Controller:Database[history] error.
-[2015-06-29 03:56:53] Booting...
-[2015-06-29 03:56:56] Booting...
-[2015-06-29 03:56:59] Gateway:Received message!
-[2015-06-29 03:56:59] Gateway:Start to dividing the instruction!
-[2015-06-29 03:56:59] Gateway:Instruction format checking finished!
-[2015-06-29 03:56:59] Gateway:select max_raise success
-[2015-06-29 03:56:59] Gateway:Start sending message to worker!
-[2015-06-29 03:56:59] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:56:59] Worker:Received message!
-[2015-06-29 03:56:59] Worker:Prepare to process the instruction!
-[2015-06-29 03:56:59] Controller:Processing...
-[2015-06-29 03:56:59] Controller:Pool is opened
-[2015-06-29 03:56:59] DatabaseUnit:Connecting...
-[2015-06-29 03:56:59] DatabaseUnit:
-[2015-06-29 03:56:59] DatabaseUnit:Add failed! You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':06:29 03:56:59)' at line 1
-Query:insert into Stock_Deal_History(iid, aid, type, code, amount, price, dealtime ) values ('567', '132', 1, 600100, 1, 100, 2015:06:29 03:56:59)
-[2015-06-29 03:56:59] Controller:Database[history] error.
-[2015-06-29 03:57:44] Booting...
-[2015-06-29 03:57:46] Booting...
-[2015-06-29 03:57:51] Booting...
-[2015-06-29 03:57:53] Booting...
-[2015-06-29 03:57:56] Gateway:Received message!
-[2015-06-29 03:57:56] Gateway:Start to dividing the instruction!
-[2015-06-29 03:57:56] Gateway:Instruction format checking finished!
-[2015-06-29 03:57:56] Gateway:select max_raise success
-[2015-06-29 03:57:56] Gateway:Start sending message to worker!
-[2015-06-29 03:57:56] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 03:57:56] Worker:Received message!
-[2015-06-29 03:57:56] Worker:Prepare to process the instruction!
-[2015-06-29 03:57:56] Controller:Processing...
-[2015-06-29 03:57:56] Controller:Pool is opened
-[2015-06-29 03:57:56] DatabaseUnit:Connecting...
-[2015-06-29 03:57:56] DatabaseUnit:
-[2015-06-29 03:57:56] DatabaseUnit:Add failed! Unknown column 'amount' in 'field list'
-Query:insert into Stock_Deal_History(iid, aid, type, code, amount, price, dealtime ) values ('567', '132', 1, 600100, 1, 100, '2015:06:29 03:57:56')
-[2015-06-29 03:57:56] Controller:Database[history] error.
-[2015-06-29 04:03:57] Booting...
-[2015-06-29 04:03:59] Booting...
-[2015-06-29 04:04:04] Gateway:Received message!
-[2015-06-29 04:04:04] Gateway:Start to dividing the instruction!
-[2015-06-29 04:04:04] Gateway:Instruction format checking finished!
-[2015-06-29 04:04:04] Gateway:select max_raise success
-[2015-06-29 04:04:04] Gateway:Start sending message to worker!
-[2015-06-29 04:04:04] Gateway:Succeed!Instruction had send to worker.
-[2015-06-29 04:04:04] Worker:Received message!
-[2015-06-29 04:04:04] Worker:Prepare to process the instruction!
-[2015-06-29 04:04:04] Controller:Processing...
-[2015-06-29 04:04:04] Controller:Pool is opened
-[2015-06-29 04:04:04] DatabaseUnit:Connecting...
-[2015-06-29 04:04:04] DatabaseUnit:
-[2015-06-29 04:15:23] Booting...
-[2015-06-29 04:15:51] Booting...
+[2015-06-30 12:44:19] Gateway:Received message!
+[2015-06-30 12:44:19] Gateway:Start to dividing the instruction!
+[2015-06-30 12:44:19] Gateway:Instruction format checking finished!
+[2015-06-30 12:44:19] Gateway:select max_raise success
+[2015-06-30 12:44:19] Gateway:Start sending message to worker!
+[2015-06-30 12:44:19] Gateway:Succeed!Instruction had send to worker.
+[2015-06-30 12:44:19] Worker:Received message!
+[2015-06-30 12:44:19] Worker:Prepare to process the instruction!
+[2015-06-30 12:44:19] Controller:Processing...
+[2015-06-30 12:44:19] Controller:Pool is opened
+[2015-06-30 12:44:19] DatabaseUnit:Connecting...
+[2015-06-30 12:44:19] Controller:Adding instruction to pool...
+[2015-06-30 12:44:19] PoolUnit:Start to add instruction.
+[2015-06-30 12:44:19] PoolUnit:Add buy instruction to stock. Code:100 
+[2015-06-30 12:44:19] Treap[buy]:1 node add finished. 
+[2015-06-30 12:44:19] Treap[display]:  1: -1 -1
+[2015-06-30 12:44:19] 1: time:2015:06:30 00:44:19, id:599, aid:132, code:100, amount:20, price:100, status:0, msec:1435596259.6883  level:1209759707
+[2015-06-30 12:44:19] Controller:0 trades matching. 
+[2015-06-30 12:44:50] Gateway:Received message!
+[2015-06-30 12:44:50] Gateway:Start to dividing the instruction!
+[2015-06-30 12:44:50] Gateway:Instruction format checking finished!
+[2015-06-30 12:44:50] Gateway:select max_raise success
+[2015-06-30 12:44:50] Gateway:Start sending message to worker!
+[2015-06-30 12:44:50] Gateway:Succeed!Instruction had send to worker.
+[2015-06-30 12:44:50] Worker:Received message!
+[2015-06-30 12:44:50] Worker:Prepare to process the instruction!
+[2015-06-30 12:44:50] Controller:Processing...
+[2015-06-30 12:44:50] Controller:Pool is opened
+[2015-06-30 12:44:50] DatabaseUnit:Connecting...
+[2015-06-30 12:44:50] Controller:Adding instruction to pool...
+[2015-06-30 12:44:50] PoolUnit:Start to add instruction.
+[2015-06-30 12:44:50] PoolUnit:Add buy instruction to stock. Code:100 
+[2015-06-30 12:44:50] Treap[buy]:add a node to the left subtree. 
+[2015-06-30 12:44:50] Treap[buy]:2 node add finished. 
+[2015-06-30 12:44:50] Treap[display]:  1: 2 -1
+[2015-06-30 12:44:50] Treap[display]:  2: -1 -1
+[2015-06-30 12:44:50] 2: time:2015:06:30 00:44:50, id:600, aid:132, code:100, amount:20, price:200, status:0, msec:1435596290.8769  level:456523664
+[2015-06-30 12:44:50] 1: time:2015:06:30 00:44:19, id:599, aid:132, code:100, amount:20, price:100, status:0, msec:1435596259.6883  level:1209759707
+[2015-06-30 12:44:50] Controller:0 trades matching. 
+[2015-06-30 12:45:35] Gateway:Received message!
+[2015-06-30 12:45:35] Gateway:Start to dividing the instruction!
+[2015-06-30 12:45:35] Gateway:Instruction format checking finished!
+[2015-06-30 12:45:35] Gateway:select max_raise success
+[2015-06-30 12:45:35] Gateway:Start sending message to worker!
+[2015-06-30 12:45:35] Gateway:Succeed!Instruction had send to worker.
+[2015-06-30 12:45:35] Worker:Received message!
+[2015-06-30 12:45:35] Worker:Prepare to process the instruction!
+[2015-06-30 12:45:35] Controller:Processing...
+[2015-06-30 12:45:35] Controller:Pool is opened
+[2015-06-30 12:45:35] DatabaseUnit:Connecting...
+[2015-06-30 12:45:35] Controller:Adding instruction to pool...
+[2015-06-30 12:45:35] PoolUnit:Start to add instruction.
+[2015-06-30 12:45:35] PoolUnit:Add buy instruction to stock. Code:100 
+[2015-06-30 12:45:35] Treap[buy]:add a node to the right subtree. 
+[2015-06-30 12:45:35] Treap[buy]:3 node add finished. 
+[2015-06-30 12:45:35] Treap[display]:  1: -1 3
+[2015-06-30 12:45:35] 1: time:2015:06:30 00:44:19, id:599, aid:132, code:100, amount:20, price:100, status:0, msec:1435596259.6883  level:1209759707
+[2015-06-30 12:45:35] Treap[display]:  3: -1 -1
+[2015-06-30 12:45:35] 3: time:2015:06:30 00:45:35, id:601, aid:132, code:100, amount:20, price:10, status:0, msec:1435596335.9037  level:1008186680
+[2015-06-30 12:45:35] Controller: trades matching. 

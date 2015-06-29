@@ -1,734 +1,176 @@
-2015-06-28 11:53:31 Workerman[start.php] start in DEBUG mode
-2015-06-28 11:53:45 Workerman[start.php] stop 
-2015-06-28 11:53:45 Workerman[start.php] is stoping ...
-2015-06-28 11:53:45 Workerman[start.php] Stopping ...
-2015-06-28 11:53:45 Workerman[start.php] has been stopped
-2015-06-28 11:53:45 Workerman[start.php] stop success
-2015-06-28 15:00:08 Workerman[start.php] start in DEBUG mode
-2015-06-28 15:00:26 Workerman[start.php] stop 
-2015-06-28 15:00:26 Workerman[start.php] is stoping ...
-2015-06-28 15:00:26 Workerman[start.php] Stopping ...
-2015-06-28 15:00:26 Workerman[start.php] has been stopped
-2015-06-28 15:00:26 Workerman[start.php] stop success
-2015-06-28 17:04:36 Workerman[start.php] start in DEBUG mode
-2015-06-28 17:04:45 Workerman[start.php] Stopping ...
-2015-06-28 17:04:45 Workerman[start.php] has been stopped
-2015-06-28 17:05:10 Workerman[start.php] start in DEBUG mode
-2015-06-28 17:06:03 Workerman[start.php] start in DEBUG mode
-2015-06-28 17:06:03 Workerman[start.php] is running
-2015-06-28 17:06:13 Workerman[start.php] start in DEBUG mode
-2015-06-28 17:06:13 Workerman[start.php] is running
-2015-06-28 17:08:03 Workerman[start.php] start in DEBUG mode
-2015-06-28 17:08:03 Workerman[start.php] is running
-2015-06-28 19:44:02 Workerman[start.php] start in DEBUG mode
-2015-06-28 19:44:15 Workerman[start.php] stop 
-2015-06-28 19:44:15 Workerman[start.php] is stoping ...
-2015-06-28 19:44:15 Workerman[start.php] Stopping ...
-2015-06-28 19:44:15 Workerman[start.php] has been stopped
-2015-06-28 19:44:15 Workerman[start.php] stop success
-2015-06-28 19:48:41 Workerman[start.php] start in DEBUG mode
-2015-06-28 19:48:44 Workerman[start.php] stop 
-2015-06-28 19:48:44 Workerman[start.php] is stoping ...
-2015-06-28 19:48:44 Workerman[start.php] Stopping ...
-2015-06-28 19:48:44 Workerman[start.php] has been stopped
-2015-06-28 19:48:44 Workerman[start.php] stop success
-2015-06-28 19:49:41 Workerman[start.php] stop 
-2015-06-28 19:49:41 Workerman[start.php] not run
-2015-06-28 19:49:41 Workerman[start.php] is stoping ...
-2015-06-28 19:49:41 Workerman[start.php] stop success
-2015-06-28 19:49:46 Workerman[start.php] start in DEBUG mode
-2015-06-28 20:26:59 Workerman[start.php] status 
-2015-06-28 20:28:05 Workerman[start.php] status 
-2015-06-28 20:33:44 Workerman[start.php] stop 
-2015-06-28 20:33:44 Workerman[start.php] is stoping ...
-2015-06-28 20:33:44 Workerman[start.php] Stopping ...
-2015-06-28 20:33:44 Workerman[start.php] has been stopped
-2015-06-28 20:33:44 Workerman[start.php] stop success
-2015-06-28 20:33:48 Workerman[start.php] start in DEBUG mode
-2015-06-28 20:37:23 Workerman[start.php] start in DEBUG mode
-2015-06-28 20:41:17 Workerman[start.php] stop 
-2015-06-28 20:41:17 Workerman[start.php] is stoping ...
-2015-06-28 20:41:17 Workerman[start.php] Stopping ...
-2015-06-28 20:41:17 Workerman[start.php] has been stopped
-2015-06-28 20:41:17 Workerman[start.php] stop success
-2015-06-28 20:49:07 Workerman[start.php] stop 
-2015-06-28 20:49:07 Workerman[start.php] not run
-2015-06-28 20:49:07 Workerman[start.php] is stoping ...
-2015-06-28 20:49:07 Workerman[start.php] stop success
-2015-06-28 20:49:11 Workerman[start.php] start in DEBUG mode
-2015-06-28 20:50:08 Workerman[start.php] status 
-2015-06-28 21:00:45 Workerman[start.php] start in DEBUG mode
-2015-06-28 21:00:47 exception 'Exception' with message 'cant not mkdir(/tmp/home/log/CliTes/)' in /var/www/sts/GatewayWorker/Lib/StoreDriver/File.php:44
-Stack trace:
-#0 /var/www/sts/GatewayWorker/Lib/Store.php(92): GatewayWorker\Lib\StoreDriver\File->__construct('gateway')
-#1 /var/www/sts/GatewayWorker/Gateway.php(519): GatewayWorker\Lib\Store::instance('gateway')
-#2 /var/www/sts/GatewayWorker/Gateway.php(400): GatewayWorker\Gateway->registerAddress()
-#3 [internal function]: GatewayWorker\Gateway->onWorkerStart(Object(GatewayWorker\Gateway))
-#4 /var/www/sts/Workerman/Worker.php(1286): call_user_func(Array, Object(GatewayWorker\Gateway))
-#5 /var/www/sts/GatewayWorker/Gateway.php(178): Workerman\Worker->run()
-#6 /var/www/sts/Workerman/Worker.php(779): GatewayWorker\Gateway->run()
-#7 /var/www/sts/Workerman/Worker.php(748): Workerman\Worker::forkOneWorker(Object(GatewayWorker\Gateway))
-#8 /var/www/sts/Workerman/Worker.php(328): Workerman\Worker::forkWorkers()
-#9 /var/www/sts/start.php(30): Workerman\Worker::runAll()
-#10 {main}
-2015-06-28 21:00:47 registerAddress fail and exit
-2015-06-28 21:11:43 Workerman[start.php] start in DEBUG mode
-2015-06-28 21:11:44 exception 'Exception' with message 'cant not mkdir(/tmp/home/log/CliTes/)' in /var/www/sts/GatewayWorker/Lib/StoreDriver/File.php:44
-Stack trace:
-#0 /var/www/sts/GatewayWorker/Lib/Store.php(92): GatewayWorker\Lib\StoreDriver\File->__construct('gateway')
-#1 /var/www/sts/GatewayWorker/Gateway.php(519): GatewayWorker\Lib\Store::instance('gateway')
-#2 /var/www/sts/GatewayWorker/Gateway.php(400): GatewayWorker\Gateway->registerAddress()
-#3 [internal function]: GatewayWorker\Gateway->onWorkerStart(Object(GatewayWorker\Gateway))
-#4 /var/www/sts/Workerman/Worker.php(1286): call_user_func(Array, Object(GatewayWorker\Gateway))
-#5 /var/www/sts/GatewayWorker/Gateway.php(178): Workerman\Worker->run()
-#6 /var/www/sts/Workerman/Worker.php(779): GatewayWorker\Gateway->run()
-#7 /var/www/sts/Workerman/Worker.php(748): Workerman\Worker::forkOneWorker(Object(GatewayWorker\Gateway))
-#8 /var/www/sts/Workerman/Worker.php(328): Workerman\Worker::forkWorkers()
-#9 /var/www/sts/start.php(30): Workerman\Worker::runAll()
-#10 {main}
-2015-06-28 21:11:44 registerAddress fail and exit
-2015-06-28 21:11:44 exception 'Exception' with message 'cant not mkdir(/tmp/home/log/CliTes/)' in /var/www/sts/GatewayWorker/Lib/StoreDriver/File.php:44
-Stack trace:
-#0 /var/www/sts/GatewayWorker/Lib/Store.php(92): GatewayWorker\Lib\StoreDriver\File->__construct('gateway')
-#1 /var/www/sts/GatewayWorker/Gateway.php(519): GatewayWorker\Lib\Store::instance('gateway')
-#2 /var/www/sts/GatewayWorker/Gateway.php(400): GatewayWorker\Gateway->registerAddress()
-#3 [internal function]: GatewayWorker\Gateway->onWorkerStart(Object(GatewayWorker\Gateway))
-#4 /var/www/sts/Workerman/Worker.php(1286): call_user_func(Array, Object(GatewayWorker\Gateway))
-#5 /var/www/sts/GatewayWorker/Gateway.php(178): Workerman\Worker->run()
-#6 /var/www/sts/Workerman/Worker.php(779): GatewayWorker\Gateway->run()
-#7 /var/www/sts/Workerman/Worker.php(748): Workerman\Worker::forkOneWorker(Object(GatewayWorker\Gateway))
-#8 /var/www/sts/Workerman/Worker.php(328): Workerman\Worker::forkWorkers()
-#9 /var/www/sts/start.php(30): Workerman\Worker::runAll()
-#10 {main}
-2015-06-28 21:11:44 registerAddress fail and exit
-2015-06-28 21:25:46 Workerman[start.php] stop 
-2015-06-28 21:25:46 Workerman[start.php] is stoping ...
-2015-06-28 21:25:46 Workerman[start.php] Stopping ...
-2015-06-28 21:25:46 Workerman[start.php] has been stopped
-2015-06-28 21:25:46 Workerman[start.php] stop success
-2015-06-28 21:28:59 Workerman[start.php] start in DEBUG mode
-2015-06-28 21:29:07 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected '}' in /var/www/sts/Event.php on line 35
-2015-06-28 21:29:07 worker[CoreSystemGateway:4099] exit with status 65280
-2015-06-28 21:29:16 WORKER EXIT UNEXPECTED E_ERROR Call to a member function process() on a non-object in /var/www/sts/start.php on line 27
-2015-06-28 21:29:16 worker[CoreSystemController:4100] exit with status 65280
-2015-06-28 21:29:29 Workerman[start.php] status 
-2015-06-28 21:30:53 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected '}' in /var/www/sts/Event.php on line 35
-2015-06-28 21:30:53 worker[CoreSystemGateway:4097] exit with status 65280
-2015-06-28 21:31:25 Workerman[start.php] status 
-2015-06-28 21:36:35 Workerman[start.php] stop 
-2015-06-28 21:36:35 Workerman[start.php] is stoping ...
-2015-06-28 21:36:35 Workerman[start.php] Stopping ...
-2015-06-28 21:36:35 Workerman[start.php] has been stopped
-2015-06-28 21:36:35 Workerman[start.php] stop success
-2015-06-28 21:36:38 Workerman[start.php] start in DEBUG mode
-2015-06-28 21:36:50 Workerman[start.php] status 
-2015-06-28 21:37:03 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected '}' in /var/www/sts/Event.php on line 35
-2015-06-28 21:37:03 worker[CoreSystemGateway:4803] exit with status 65280
-2015-06-28 21:37:13 Workerman[start.php] status 
-2015-06-28 21:39:49 Workerman[start.php] stop 
-2015-06-28 21:39:49 Workerman[start.php] is stoping ...
-2015-06-28 21:39:49 Workerman[start.php] Stopping ...
-2015-06-28 21:39:49 Workerman[start.php] has been stopped
-2015-06-28 21:39:49 Workerman[start.php] stop success
-2015-06-28 21:39:51 Workerman[start.php] start in DEBUG mode
-2015-06-28 21:40:19 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected 'public' (T_PUBLIC) in /var/www/sts/Event.php on line 105
-2015-06-28 21:40:19 worker[CoreSystemGateway:4883] exit with status 65280
-2015-06-28 21:51:04 Workerman[start.php] stop 
-2015-06-28 21:51:04 Workerman[start.php] is stoping ...
-2015-06-28 21:51:04 Workerman[start.php] Stopping ...
-2015-06-28 21:51:04 Workerman[start.php] has been stopped
-2015-06-28 21:51:04 Workerman[start.php] stop success
-2015-06-28 21:51:50 Workerman[start.php] start in DEBUG mode
-2015-06-28 21:51:55 Workerman[start.php] start in DEBUG mode
-2015-06-28 21:51:55 Workerman[start.php] is running
-2015-06-28 21:52:00 Workerman[start.php] status 
-2015-06-28 21:52:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 21:52:05 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 21:52:19 Workerman[start.php] status 
-2015-06-28 21:53:14 Workerman[start.php] stop 
-2015-06-28 21:53:14 Workerman[start.php] is stoping ...
-2015-06-28 21:53:14 Workerman[start.php] Stopping ...
-2015-06-28 21:53:14 Workerman[start.php] has been stopped
-2015-06-28 21:53:14 Workerman[start.php] stop success
-2015-06-28 21:57:47 Workerman[start.php] start in DEBUG mode
-2015-06-28 21:57:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 21:57:57 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 21:58:06 Workerman[start.php] status 
-2015-06-28 22:07:34 Workerman[start.php] stop 
-2015-06-28 22:07:34 Workerman[start.php] is stoping ...
-2015-06-28 22:07:34 Workerman[start.php] Stopping ...
-2015-06-28 22:07:34 Workerman[start.php] has been stopped
-2015-06-28 22:07:34 Workerman[start.php] stop success
-2015-06-28 22:14:28 Workerman[start.php] start in DEBUG mode
-2015-06-28 22:14:32 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 22:14:32 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 22:15:32 Workerman[start.php] stop 
-2015-06-28 22:15:32 Workerman[start.php] is stoping ...
-2015-06-28 22:15:32 Workerman[start.php] Stopping ...
-2015-06-28 22:15:32 Workerman[start.php] has been stopped
-2015-06-28 22:15:32 Workerman[start.php] stop success
-2015-06-28 22:19:47 Workerman[start.php] stop 
-2015-06-28 22:19:47 Workerman[start.php] not run
-2015-06-28 22:19:47 Workerman[start.php] is stoping ...
-2015-06-28 22:19:47 Workerman[start.php] stop success
-2015-06-28 22:53:44 Workerman[start.php] start in DEBUG mode
-2015-06-28 22:54:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 22:54:07 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 22:54:41 Workerman[start.php] stop 
-2015-06-28 22:54:41 Workerman[start.php] is stoping ...
-2015-06-28 22:54:41 Workerman[start.php] Stopping ...
-2015-06-28 22:54:41 Workerman[start.php] has been stopped
-2015-06-28 22:54:41 Workerman[start.php] stop success
-2015-06-28 22:56:47 Workerman[start.php] stop 
-2015-06-28 22:56:47 Workerman[start.php] not run
-2015-06-28 22:56:47 Workerman[start.php] is stoping ...
-2015-06-28 22:56:47 Workerman[start.php] stop success
-2015-06-28 22:56:50 Workerman[start.php] start in DEBUG mode
-2015-06-28 22:57:08 Workerman[start.php] status 
-2015-06-28 22:57:35 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 22:57:35 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 22:59:50 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 22:59:50 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 23:01:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 23:01:04 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 23:03:47 Workerman[start.php] stop 
-2015-06-28 23:03:47 Workerman[start.php] is stoping ...
-2015-06-28 23:03:47 Workerman[start.php] Stopping ...
-2015-06-28 23:03:47 Workerman[start.php] has been stopped
-2015-06-28 23:03:47 Workerman[start.php] stop success
-2015-06-28 23:03:51 Workerman[start.php] start in DEBUG mode
-2015-06-28 23:03:56 Workerman[start.php] stop 
-2015-06-28 23:03:56 Workerman[start.php] is stoping ...
-2015-06-28 23:03:56 Workerman[start.php] Stopping ...
-2015-06-28 23:03:56 Workerman[start.php] has been stopped
-2015-06-28 23:03:56 Workerman[start.php] stop success
-2015-06-28 23:07:15 Workerman[start.php] start in DEBUG mode
-2015-06-28 23:07:32 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 23:07:32 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 23:08:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 23:08:10 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-28 23:09:18 Workerman[start.php] stop 
-2015-06-28 23:09:18 Workerman[start.php] is stoping ...
-2015-06-28 23:09:18 Workerman[start.php] Stopping ...
-2015-06-28 23:09:18 Workerman[start.php] has been stopped
-2015-06-28 23:09:18 Workerman[start.php] stop success
-2015-06-28 23:14:30 Workerman[start.php] stop 
-2015-06-28 23:14:30 Workerman[start.php] not run
-2015-06-28 23:14:30 Workerman[start.php] is stoping ...
-2015-06-28 23:14:30 Workerman[start.php] stop success
-2015-06-28 23:14:33 Workerman[start.php] start in DEBUG mode
-2015-06-28 23:17:33 Workerman[start.php] stop 
-2015-06-28 23:17:33 Workerman[start.php] is stoping ...
-2015-06-28 23:17:33 Workerman[start.php] Stopping ...
-2015-06-28 23:17:33 Workerman[start.php] has been stopped
-2015-06-28 23:17:33 Workerman[start.php] stop success
-2015-06-28 23:23:58 Workerman[start.php] start in DEBUG mode
-2015-06-28 23:24:30 Workerman[start.php] stop 
-2015-06-28 23:24:30 Workerman[start.php] is stoping ...
-2015-06-28 23:24:30 Workerman[start.php] Stopping ...
-2015-06-28 23:24:31 Workerman[start.php] has been stopped
-2015-06-28 23:24:31 Workerman[start.php] stop success
-2015-06-28 23:25:22 Workerman[start.php] start in DEBUG mode
-2015-06-28 23:25:42 Workerman[start.php] stop 
-2015-06-28 23:25:42 Workerman[start.php] is stoping ...
-2015-06-28 23:25:42 Workerman[start.php] Stopping ...
-2015-06-28 23:25:42 Workerman[start.php] has been stopped
-2015-06-28 23:25:42 Workerman[start.php] stop success
-2015-06-28 23:26:53 Workerman[start.php] start in DEBUG mode
-2015-06-28 23:28:29 Workerman[start.php] stop 
-2015-06-28 23:28:29 Workerman[start.php] is stoping ...
-2015-06-28 23:28:29 Workerman[start.php] Stopping ...
-2015-06-28 23:28:29 Workerman[start.php] has been stopped
-2015-06-28 23:28:29 Workerman[start.php] stop success
-2015-06-28 23:28:34 Workerman[start.php] start in DEBUG mode
-2015-06-28 23:30:32 Workerman[start.php] stop 
-2015-06-28 23:30:32 Workerman[start.php] is stoping ...
-2015-06-28 23:30:32 Workerman[start.php] Stopping ...
-2015-06-28 23:30:33 Workerman[start.php] has been stopped
-2015-06-28 23:30:33 Workerman[start.php] stop success
-2015-06-28 23:30:35 Workerman[start.php] start in DEBUG mode
-2015-06-28 23:31:04 Workerman[start.php] stop 
-2015-06-28 23:31:04 Workerman[start.php] is stoping ...
-2015-06-28 23:31:04 Workerman[start.php] Stopping ...
-2015-06-28 23:31:04 Workerman[start.php] has been stopped
-2015-06-28 23:31:04 Workerman[start.php] stop success
-2015-06-28 23:32:59 Workerman[start.php] start in DEBUG mode
-2015-06-28 23:35:01 Workerman[start.php] stop 
-2015-06-28 23:35:01 Workerman[start.php] is stoping ...
-2015-06-28 23:35:01 Workerman[start.php] Stopping ...
-2015-06-28 23:35:01 Workerman[start.php] has been stopped
-2015-06-28 23:35:01 Workerman[start.php] stop success
-2015-06-28 23:35:04 Workerman[start.php] start in DEBUG mode
-2015-06-28 23:45:06 Workerman[start.php] stop 
-2015-06-28 23:45:06 Workerman[start.php] is stoping ...
-2015-06-28 23:45:06 Workerman[start.php] Stopping ...
-2015-06-28 23:45:06 Workerman[start.php] has been stopped
-2015-06-28 23:45:06 Workerman[start.php] stop success
-2015-06-28 23:47:15 Workerman[start.php] start in DEBUG mode
-2015-06-29 00:51:47 Workerman[start.php] stop 
-2015-06-29 00:51:47 Workerman[start.php] is stoping ...
-2015-06-29 00:51:47 Workerman[start.php] Stopping ...
-2015-06-29 00:51:47 Workerman[start.php] has been stopped
-2015-06-29 00:51:47 Workerman[start.php] stop success
-2015-06-29 00:51:51 Workerman[start.php] start in DEBUG mode
-2015-06-29 00:52:38 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected 'return' (T_RETURN) in /var/www/sts/Event.php on line 36
-2015-06-29 00:52:38 worker[CoreSystemGateway:7814] exit with status 65280
-2015-06-29 00:54:13 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected 'return' (T_RETURN) in /var/www/sts/Event.php on line 36
-2015-06-29 00:54:13 worker[CoreSystemGateway:7815] exit with status 65280
-2015-06-29 00:58:09 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected 'return' (T_RETURN) in /var/www/sts/Event.php on line 56
-2015-06-29 00:58:09 worker[CoreSystemGateway:7826] exit with status 65280
-2015-06-29 00:58:46 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected 'Gateway' (T_STRING) in /var/www/sts/Event.php on line 74
-2015-06-29 00:58:46 worker[CoreSystemGateway:7812] exit with status 65280
-2015-06-29 00:59:17 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected 'Gateway' (T_STRING) in /var/www/sts/Event.php on line 78
-2015-06-29 00:59:17 worker[CoreSystemGateway:7886] exit with status 65280
-2015-06-29 01:03:08 client_id:29	client_ip:127.0.0.1
-exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Stock' WHERE code=600100' at line 1' in /var/www/sts/GatewayWorker/Lib/DbConnection.php:1602
-Stack trace:
-#0 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1602): PDO->prepare('SELECT max_rals...')
-#1 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1799): GatewayWorker\Lib\DbConnection->execute('SELECT max_rals...', NULL)
-#2 /var/www/sts/Event.php(50): GatewayWorker\Lib\DbConnection->single('SELECT max_rals...')
-#3 /var/www/sts/GatewayWorker/BusinessWorker.php(146): Event::onMessage(29, '{"type":0,"id":...')
-#4 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
-#5 /var/www/sts/Workerman/Connection/TcpConnection.php(466): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
-#6 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #426)
-#7 /var/www/sts/Workerman/Events/Select.php(257): call_user_func_array(Array, Array)
-#8 /var/www/sts/Workerman/Worker.php(1290): Workerman\Events\Select->loop()
-#9 /var/www/sts/GatewayWorker/BusinessWorker.php(86): Workerman\Worker->run()
-#10 /var/www/sts/Workerman/Worker.php(779): GatewayWorker\BusinessWorker->run()
-#11 /var/www/sts/Workerman/Worker.php(748): Workerman\Worker::forkOneWorker(Object(GatewayWorker\BusinessWorker))
-#12 /var/www/sts/Workerman/Worker.php(328): Workerman\Worker::forkWorkers()
-#13 /var/www/sts/start.php(35): Workerman\Worker::runAll()
-#14 {main}
-2015-06-29 01:07:30 client_id:30	client_ip:127.0.0.1
-exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Stock' WHERE code=600100' at line 1' in /var/www/sts/GatewayWorker/Lib/DbConnection.php:1602
-Stack trace:
-#0 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1602): PDO->prepare('SELECT max_rals...')
-#1 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1799): GatewayWorker\Lib\DbConnection->execute('SELECT max_rals...', NULL)
-#2 /var/www/sts/Event.php(50): GatewayWorker\Lib\DbConnection->single('SELECT max_rals...')
-#3 /var/www/sts/GatewayWorker/BusinessWorker.php(146): Event::onMessage(30, '{"type":0,"id":...')
-#4 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
-#5 /var/www/sts/Workerman/Connection/TcpConnection.php(466): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
-#6 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #426)
-#7 /var/www/sts/Workerman/Events/Select.php(257): call_user_func_array(Array, Array)
-#8 /var/www/sts/Workerman/Worker.php(1290): Workerman\Events\Select->loop()
-#9 /var/www/sts/GatewayWorker/BusinessWorker.php(86): Workerman\Worker->run()
-#10 /var/www/sts/Workerman/Worker.php(779): GatewayWorker\BusinessWorker->run()
-#11 /var/www/sts/Workerman/Worker.php(748): Workerman\Worker::forkOneWorker(Object(GatewayWorker\BusinessWorker))
-#12 /var/www/sts/Workerman/Worker.php(328): Workerman\Worker::forkWorkers()
-#13 /var/www/sts/start.php(35): Workerman\Worker::runAll()
-#14 {main}
-2015-06-29 01:08:30 client_id:31	client_ip:127.0.0.1
-exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Stock' WHERE code=600100' at line 1' in /var/www/sts/GatewayWorker/Lib/DbConnection.php:1602
-Stack trace:
-#0 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1602): PDO->prepare('SELECT max_rals...')
-#1 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1799): GatewayWorker\Lib\DbConnection->execute('SELECT max_rals...', NULL)
-#2 /var/www/sts/Event.php(50): GatewayWorker\Lib\DbConnection->single('SELECT max_rals...')
-#3 /var/www/sts/GatewayWorker/BusinessWorker.php(146): Event::onMessage(31, '{"type":0,"id":...')
-#4 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
-#5 /var/www/sts/Workerman/Connection/TcpConnection.php(466): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
-#6 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #44)
-#7 /var/www/sts/Workerman/Events/Select.php(257): call_user_func_array(Array, Array)
-#8 /var/www/sts/Workerman/Worker.php(1290): Workerman\Events\Select->loop()
-#9 /var/www/sts/GatewayWorker/BusinessWorker.php(86): Workerman\Worker->run()
-#10 /var/www/sts/Workerman/Worker.php(779): GatewayWorker\BusinessWorker->run()
-#11 /var/www/sts/Workerman/Worker.php(748): Workerman\Worker::forkOneWorker(Object(GatewayWorker\BusinessWorker))
-#12 /var/www/sts/Workerman/Worker.php(328): Workerman\Worker::forkWorkers()
-#13 /var/www/sts/start.php(35): Workerman\Worker::runAll()
-#14 {main}
-2015-06-29 01:20:54 client_id:32	client_ip:127.0.0.1
-exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Stock' WHERE code=600100' at line 1' in /var/www/sts/GatewayWorker/Lib/DbConnection.php:1602
-Stack trace:
-#0 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1602): PDO->prepare('SELECT max_rals...')
-#1 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1799): GatewayWorker\Lib\DbConnection->execute('SELECT max_rals...', NULL)
-#2 /var/www/sts/Event.php(50): GatewayWorker\Lib\DbConnection->single('SELECT max_rals...')
-#3 /var/www/sts/GatewayWorker/BusinessWorker.php(146): Event::onMessage(32, '{"type":0,"id":...')
-#4 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
-#5 /var/www/sts/Workerman/Connection/TcpConnection.php(466): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
-#6 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #44)
-#7 /var/www/sts/Workerman/Events/Select.php(257): call_user_func_array(Array, Array)
-#8 /var/www/sts/Workerman/Worker.php(1290): Workerman\Events\Select->loop()
-#9 /var/www/sts/GatewayWorker/BusinessWorker.php(86): Workerman\Worker->run()
-#10 /var/www/sts/Workerman/Worker.php(779): GatewayWorker\BusinessWorker->run()
-#11 /var/www/sts/Workerman/Worker.php(748): Workerman\Worker::forkOneWorker(Object(GatewayWorker\BusinessWorker))
-#12 /var/www/sts/Workerman/Worker.php(328): Workerman\Worker::forkWorkers()
-#13 /var/www/sts/start.php(35): Workerman\Worker::runAll()
-#14 {main}
-2015-06-29 01:27:06 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected '[' in /var/www/sts/Event.php on line 50
-2015-06-29 01:27:06 worker[CoreSystemGateway:7991] exit with status 65280
-2015-06-29 01:27:11 client_id:34	client_ip:127.0.0.1
-exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Stock' WHERE code=600100' at line 1' in /var/www/sts/GatewayWorker/Lib/DbConnection.php:1602
-Stack trace:
-#0 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1602): PDO->prepare('SELECT max_rals...')
-#1 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1799): GatewayWorker\Lib\DbConnection->execute('SELECT max_rals...', NULL)
-#2 /var/www/sts/Event.php(50): GatewayWorker\Lib\DbConnection->single('SELECT max_rals...')
-#3 /var/www/sts/GatewayWorker/BusinessWorker.php(146): Event::onMessage(34, '{"type":0,"id":...')
-#4 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
-#5 /var/www/sts/Workerman/Connection/TcpConnection.php(466): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
-#6 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #44)
-#7 /var/www/sts/Workerman/Events/Select.php(257): call_user_func_array(Array, Array)
-#8 /var/www/sts/Workerman/Worker.php(1290): Workerman\Events\Select->loop()
-#9 /var/www/sts/GatewayWorker/BusinessWorker.php(86): Workerman\Worker->run()
-#10 /var/www/sts/Workerman/Worker.php(779): GatewayWorker\BusinessWorker->run()
-#11 /var/www/sts/Workerman/Worker.php(748): Workerman\Worker::forkOneWorker(Object(GatewayWorker\BusinessWorker))
-#12 /var/www/sts/Workerman/Worker.php(328): Workerman\Worker::forkWorkers()
-#13 /var/www/sts/start.php(35): Workerman\Worker::runAll()
-#14 {main}
-2015-06-29 01:28:39 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected '[' in /var/www/sts/Event.php on line 50
-2015-06-29 01:28:39 worker[CoreSystemGateway:8022] exit with status 65280
-2015-06-29 01:28:40 client_id:36	client_ip:127.0.0.1
-exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Stock' WHERE code=600100' at line 1' in /var/www/sts/GatewayWorker/Lib/DbConnection.php:1602
-Stack trace:
-#0 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1602): PDO->prepare('SELECT max_rals...')
-#1 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1799): GatewayWorker\Lib\DbConnection->execute('SELECT max_rals...', NULL)
-#2 /var/www/sts/Event.php(50): GatewayWorker\Lib\DbConnection->single('SELECT max_rals...')
-#3 /var/www/sts/GatewayWorker/BusinessWorker.php(146): Event::onMessage(36, '{"type":0,"id":...')
-#4 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
-#5 /var/www/sts/Workerman/Connection/TcpConnection.php(466): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
-#6 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #426)
-#7 /var/www/sts/Workerman/Events/Select.php(257): call_user_func_array(Array, Array)
-#8 /var/www/sts/Workerman/Worker.php(1290): Workerman\Events\Select->loop()
-#9 /var/www/sts/GatewayWorker/BusinessWorker.php(86): Workerman\Worker->run()
-#10 /var/www/sts/Workerman/Worker.php(779): GatewayWorker\BusinessWorker->run()
-#11 /var/www/sts/Workerman/Worker.php(748): Workerman\Worker::forkOneWorker(Object(GatewayWorker\BusinessWorker))
-#12 /var/www/sts/Workerman/Worker.php(328): Workerman\Worker::forkWorkers()
-#13 /var/www/sts/start.php(35): Workerman\Worker::runAll()
-#14 {main}
-2015-06-29 01:31:44 client_id:37	client_ip:127.0.0.1
-exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Stock' WHERE code=600100' at line 1' in /var/www/sts/GatewayWorker/Lib/DbConnection.php:1602
-Stack trace:
-#0 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1602): PDO->prepare('SELECT max_rals...')
-#1 /var/www/sts/GatewayWorker/Lib/DbConnection.php(1799): GatewayWorker\Lib\DbConnection->execute('SELECT max_rals...', NULL)
-#2 /var/www/sts/Event.php(50): GatewayWorker\Lib\DbConnection->single('SELECT max_rals...')
-#3 /var/www/sts/GatewayWorker/BusinessWorker.php(146): Event::onMessage(37, '{"type":0,"id":...')
-#4 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
-#5 /var/www/sts/Workerman/Connection/TcpConnection.php(466): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
-#6 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #426)
-#7 /var/www/sts/Workerman/Events/Select.php(257): call_user_func_array(Array, Array)
-#8 /var/www/sts/Workerman/Worker.php(1290): Workerman\Events\Select->loop()
-#9 /var/www/sts/GatewayWorker/BusinessWorker.php(86): Workerman\Worker->run()
-#10 /var/www/sts/Workerman/Worker.php(779): GatewayWorker\BusinessWorker->run()
-#11 /var/www/sts/Workerman/Worker.php(748): Workerman\Worker::forkOneWorker(Object(GatewayWorker\BusinessWorker))
-#12 /var/www/sts/Workerman/Worker.php(328): Workerman\Worker::forkWorkers()
-#13 /var/www/sts/start.php(35): Workerman\Worker::runAll()
-#14 {main}
-2015-06-29 01:33:17 Workerman[start.php] stop 
-2015-06-29 01:33:17 Workerman[start.php] is stoping ...
-2015-06-29 01:33:17 Workerman[start.php] Stopping ...
-2015-06-29 01:33:17 Workerman[start.php] has been stopped
-2015-06-29 01:33:17 Workerman[start.php] stop success
-2015-06-29 01:33:19 Workerman[start.php] start in DEBUG mode
-2015-06-29 01:33:29 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected '[' in /var/www/sts/Event.php on line 50
-2015-06-29 01:33:29 worker[CoreSystemGateway:8625] exit with status 65280
-2015-06-29 01:33:30 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected '[' in /var/www/sts/Event.php on line 50
-2015-06-29 01:33:30 worker[CoreSystemGateway:8624] exit with status 65280
-2015-06-29 01:33:32 WORKER EXIT UNEXPECTED E_PARSE syntax error, unexpected '[' in /var/www/sts/Event.php on line 50
-2015-06-29 01:33:32 worker[CoreSystemGateway:8627] exit with status 65280
-2015-06-29 01:34:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-29 01:34:02 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-29 01:34:33 Workerman[start.php] stop 
-2015-06-29 01:34:33 Workerman[start.php] is stoping ...
-2015-06-29 01:34:33 Workerman[start.php] Stopping ...
-2015-06-29 01:34:33 Workerman[start.php] has been stopped
-2015-06-29 01:34:33 Workerman[start.php] stop success
-2015-06-29 01:34:34 Workerman[start.php] start in DEBUG mode
-2015-06-29 01:34:43 WORKER EXIT UNEXPECTED E_ERROR Call to a member function process() on a non-object in /var/www/sts/start.php on line 24
-2015-06-29 01:34:43 worker[CoreSystemController:8705] exit with status 65280
-2015-06-29 01:37:09 Workerman[start.php] stop 
-2015-06-29 01:37:09 Workerman[start.php] is stoping ...
-2015-06-29 01:37:09 Workerman[start.php] Stopping ...
-2015-06-29 01:37:09 Workerman[start.php] has been stopped
-2015-06-29 01:37:09 Workerman[start.php] stop success
-2015-06-29 01:37:11 Workerman[start.php] start in DEBUG mode
-2015-06-29 01:37:32 WORKER EXIT UNEXPECTED E_ERROR Call to a member function process() on a non-object in /var/www/sts/start.php on line 25
-2015-06-29 01:37:32 worker[CoreSystemController:8774] exit with status 65280
-2015-06-29 01:39:47 Workerman[start.php] stop 
-2015-06-29 01:39:47 Workerman[start.php] is stoping ...
-2015-06-29 01:39:47 Workerman[start.php] Stopping ...
-2015-06-29 01:39:47 Workerman[start.php] has been stopped
-2015-06-29 01:39:47 Workerman[start.php] stop success
-2015-06-29 01:39:50 Workerman[start.php] start in DEBUG mode
-2015-06-29 01:39:57 WORKER EXIT UNEXPECTED E_ERROR Call to a member function close() on a non-object in /var/www/sts/start.php on line 25
-2015-06-29 01:39:58 worker[CoreSystemController:8848] exit with status 65280
-2015-06-29 01:42:21 Workerman[start.php] stop 
-2015-06-29 01:42:21 Workerman[start.php] is stoping ...
-2015-06-29 01:42:21 Workerman[start.php] Stopping ...
-2015-06-29 01:42:21 Workerman[start.php] has been stopped
-2015-06-29 01:42:21 Workerman[start.php] stop success
-2015-06-29 01:42:23 Workerman[start.php] start in DEBUG mode
-2015-06-29 01:42:29 WORKER EXIT UNEXPECTED E_ERROR Call to a member function setStatus() on a non-object in /var/www/sts/start.php on line 25
-2015-06-29 01:42:29 worker[CoreSystemController:8937] exit with status 65280
-2015-06-29 01:44:12 Workerman[start.php] stop 
-2015-06-29 01:44:12 Workerman[start.php] is stoping ...
-2015-06-29 01:44:12 Workerman[start.php] Stopping ...
-2015-06-29 01:44:12 Workerman[start.php] has been stopped
-2015-06-29 01:44:12 Workerman[start.php] stop success
-2015-06-29 01:44:14 Workerman[start.php] start in DEBUG mode
-2015-06-29 01:44:22 WORKER EXIT UNEXPECTED E_ERROR Call to a member function setStatus() on a non-object in /var/www/sts/start.php on line 25
-2015-06-29 01:44:22 worker[CoreSystemController:8991] exit with status 65280
-2015-06-29 01:45:09 Workerman[start.php] stop 
-2015-06-29 01:45:09 Workerman[start.php] is stoping ...
-2015-06-29 01:45:09 Workerman[start.php] Stopping ...
-2015-06-29 01:45:09 Workerman[start.php] has been stopped
-2015-06-29 01:45:09 Workerman[start.php] stop success
-2015-06-29 01:45:11 Workerman[start.php] start in DEBUG mode
-2015-06-29 01:45:13 WORKER EXIT UNEXPECTED E_ERROR Call to a member function setStatus() on a non-object in /var/www/sts/start.php on line 25
-2015-06-29 01:45:13 worker[CoreSystemController:9035] exit with status 65280
-2015-06-29 01:47:24 Workerman[start.php] stop 
-2015-06-29 01:47:24 Workerman[start.php] is stoping ...
-2015-06-29 01:47:24 Workerman[start.php] Stopping ...
-2015-06-29 01:47:25 Workerman[start.php] has been stopped
-2015-06-29 01:47:25 Workerman[start.php] stop success
-2015-06-29 01:47:26 Workerman[start.php] start in DEBUG mode
-2015-06-29 01:47:51 WORKER EXIT UNEXPECTED E_ERROR Call to a member function setStatus() on a non-object in /var/www/sts/start.php on line 26
-2015-06-29 01:47:51 worker[CoreSystemController:9088] exit with status 65280
-2015-06-29 02:05:16 Workerman[start.php] stop 
-2015-06-29 02:05:16 Workerman[start.php] is stoping ...
-2015-06-29 02:05:16 Workerman[start.php] Stopping ...
-2015-06-29 02:05:16 Workerman[start.php] has been stopped
-2015-06-29 02:05:16 Workerman[start.php] stop success
-2015-06-29 02:05:17 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:05:22 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-29 02:05:22 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready
-2015-06-29 02:05:39 Workerman[start.php] stop 
-2015-06-29 02:05:39 Workerman[start.php] is stoping ...
-2015-06-29 02:05:39 Workerman[start.php] Stopping ...
-2015-06-29 02:05:39 Workerman[start.php] has been stopped
-2015-06-29 02:05:39 Workerman[start.php] stop success
-2015-06-29 02:05:55 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:06:02 WORKER EXIT UNEXPECTED E_ERROR Call to a member function process() on a non-object in /var/www/sts/start.php on line 25
-2015-06-29 02:06:02 worker[CoreSystemController:9278] exit with status 65280
-2015-06-29 02:06:54 Workerman[start.php] stop 
-2015-06-29 02:06:54 Workerman[start.php] is stoping ...
-2015-06-29 02:06:54 Workerman[start.php] Stopping ...
-2015-06-29 02:06:54 Workerman[start.php] has been stopped
-2015-06-29 02:06:54 Workerman[start.php] stop success
-2015-06-29 02:06:57 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:07:05 WORKER EXIT UNEXPECTED E_ERROR Call to a member function process() on a non-object in /var/www/sts/start.php on line 25
-2015-06-29 02:07:05 worker[CoreSystemController:9332] exit with status 65280
-2015-06-29 02:09:15 Workerman[start.php] stop 
-2015-06-29 02:09:15 Workerman[start.php] is stoping ...
-2015-06-29 02:09:15 Workerman[start.php] Stopping ...
-2015-06-29 02:09:15 Workerman[start.php] has been stopped
-2015-06-29 02:09:15 Workerman[start.php] stop success
-2015-06-29 02:09:16 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:09:20 WORKER EXIT UNEXPECTED E_ERROR Call to a member function process() on a non-object in /var/www/sts/start.php on line 27
-2015-06-29 02:09:20 worker[CoreSystemController:9399] exit with status 65280
-2015-06-29 02:10:47 Workerman[start.php] stop 
-2015-06-29 02:10:47 Workerman[start.php] is stoping ...
-2015-06-29 02:10:47 Workerman[start.php] Stopping ...
-2015-06-29 02:10:47 Workerman[start.php] has been stopped
-2015-06-29 02:10:47 Workerman[start.php] stop success
-2015-06-29 02:10:48 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:12:08 Workerman[start.php] stop 
-2015-06-29 02:12:08 Workerman[start.php] is stoping ...
-2015-06-29 02:12:08 Workerman[start.php] Stopping ...
-2015-06-29 02:12:09 Workerman[start.php] has been stopped
-2015-06-29 02:12:09 Workerman[start.php] stop success
-2015-06-29 02:12:10 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:12:13 WORKER EXIT UNEXPECTED E_ERROR Call to a member function process() on a non-object in /var/www/sts/start.php on line 27
-2015-06-29 02:12:13 worker[CoreSystemController:9512] exit with status 65280
-2015-06-29 02:12:38 Workerman[start.php] stop 
-2015-06-29 02:12:38 Workerman[start.php] is stoping ...
-2015-06-29 02:12:38 Workerman[start.php] Stopping ...
-2015-06-29 02:12:38 Workerman[start.php] has been stopped
-2015-06-29 02:12:38 Workerman[start.php] stop success
-2015-06-29 02:16:01 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:16:06 WORKER EXIT UNEXPECTED E_ERROR Call to a member function haha() on a non-object in /var/www/sts/start.php on line 27
-2015-06-29 02:16:06 worker[CoreSystemController:9635] exit with status 65280
-2015-06-29 02:22:55 Workerman[start.php] stop 
-2015-06-29 02:22:55 Workerman[start.php] is stoping ...
-2015-06-29 02:22:55 Workerman[start.php] Stopping ...
-2015-06-29 02:22:55 Workerman[start.php] has been stopped
-2015-06-29 02:22:55 Workerman[start.php] stop success
-2015-06-29 02:22:57 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:23:01 WORKER EXIT UNEXPECTED E_ERROR Call to a member function setStatus() on a non-object in /var/www/sts/start.php on line 25
-2015-06-29 02:23:01 worker[CoreSystemController:9716] exit with status 65280
-2015-06-29 02:29:53 Workerman[start.php] stop 
-2015-06-29 02:29:53 Workerman[start.php] is stoping ...
-2015-06-29 02:29:53 Workerman[start.php] Stopping ...
-2015-06-29 02:29:53 Workerman[start.php] has been stopped
-2015-06-29 02:29:53 Workerman[start.php] stop success
-2015-06-29 02:29:55 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:29:57 WORKER EXIT UNEXPECTED E_ERROR Using $this when not in object context in /var/www/sts/controller.php on line 37
-2015-06-29 02:29:57 worker[CoreSystemController:9875] exit with status 65280
-2015-06-29 02:31:31 Workerman[start.php] stop 
-2015-06-29 02:31:31 Workerman[start.php] is stoping ...
-2015-06-29 02:31:31 Workerman[start.php] Stopping ...
-2015-06-29 02:31:31 Workerman[start.php] has been stopped
-2015-06-29 02:31:31 Workerman[start.php] stop success
-2015-06-29 02:31:32 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:33:08 Workerman[start.php] stop 
-2015-06-29 02:33:08 Workerman[start.php] is stoping ...
-2015-06-29 02:33:08 Workerman[start.php] Stopping ...
-2015-06-29 02:33:08 Workerman[start.php] has been stopped
-2015-06-29 02:33:08 Workerman[start.php] stop success
-2015-06-29 02:33:10 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:43:35 Workerman[start.php] stop 
-2015-06-29 02:43:35 Workerman[start.php] is stoping ...
-2015-06-29 02:43:35 Workerman[start.php] Stopping ...
-2015-06-29 02:43:35 Workerman[start.php] has been stopped
-2015-06-29 02:43:35 Workerman[start.php] stop success
-2015-06-29 02:43:38 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:44:06 Workerman[start.php] stop 
-2015-06-29 02:44:06 Workerman[start.php] is stoping ...
-2015-06-29 02:44:06 Workerman[start.php] Stopping ...
-2015-06-29 02:44:06 Workerman[start.php] has been stopped
-2015-06-29 02:44:06 Workerman[start.php] stop success
-2015-06-29 02:51:08 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:53:32 Workerman[start.php] stop 
-2015-06-29 02:53:32 Workerman[start.php] is stoping ...
-2015-06-29 02:53:32 Workerman[start.php] Stopping ...
-2015-06-29 02:53:32 Workerman[start.php] has been stopped
-2015-06-29 02:53:32 Workerman[start.php] stop success
-2015-06-29 02:53:51 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:53:58 WORKER EXIT UNEXPECTED E_ERROR Call to a member function process() on a non-object in /var/www/sts/start.php on line 27
-2015-06-29 02:53:58 worker[CoreSystemController:10306] exit with status 65280
-2015-06-29 02:56:05 Workerman[start.php] stop 
-2015-06-29 02:56:05 Workerman[start.php] is stoping ...
-2015-06-29 02:56:05 Workerman[start.php] Stopping ...
-2015-06-29 02:56:05 Workerman[start.php] has been stopped
-2015-06-29 02:56:05 Workerman[start.php] stop success
-2015-06-29 02:56:07 Workerman[start.php] start in DEBUG mode
-2015-06-29 02:59:15 Workerman[start.php] stop 
-2015-06-29 02:59:15 Workerman[start.php] is stoping ...
-2015-06-29 02:59:15 Workerman[start.php] Stopping ...
-2015-06-29 02:59:15 Workerman[start.php] has been stopped
-2015-06-29 02:59:15 Workerman[start.php] stop success
-2015-06-29 02:59:17 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:03:18 Workerman[start.php] stop 
-2015-06-29 03:03:18 Workerman[start.php] is stoping ...
-2015-06-29 03:03:18 Workerman[start.php] Stopping ...
-2015-06-29 03:03:18 Workerman[start.php] has been stopped
-2015-06-29 03:03:18 Workerman[start.php] stop success
-2015-06-29 03:03:19 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:04:05 Workerman[start.php] stop 
-2015-06-29 03:04:05 Workerman[start.php] is stoping ...
-2015-06-29 03:04:05 Workerman[start.php] Stopping ...
-2015-06-29 03:04:05 Workerman[start.php] has been stopped
-2015-06-29 03:04:05 Workerman[start.php] stop success
-2015-06-29 03:04:51 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:05:58 Workerman[start.php] stop 
-2015-06-29 03:05:58 Workerman[start.php] is stoping ...
-2015-06-29 03:05:58 Workerman[start.php] Stopping ...
-2015-06-29 03:05:58 Workerman[start.php] has been stopped
-2015-06-29 03:05:59 Workerman[start.php] stop success
-2015-06-29 03:06:00 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:08:45 Workerman[start.php] stop 
-2015-06-29 03:08:45 Workerman[start.php] is stoping ...
-2015-06-29 03:08:45 Workerman[start.php] Stopping ...
-2015-06-29 03:08:45 Workerman[start.php] has been stopped
-2015-06-29 03:08:45 Workerman[start.php] stop success
-2015-06-29 03:08:46 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:09:33 Workerman[start.php] stop 
-2015-06-29 03:09:33 Workerman[start.php] is stoping ...
-2015-06-29 03:09:33 Workerman[start.php] Stopping ...
-2015-06-29 03:09:34 Workerman[start.php] has been stopped
-2015-06-29 03:09:34 Workerman[start.php] stop success
-2015-06-29 03:11:13 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:11:28 Workerman[start.php] stop 
-2015-06-29 03:11:28 Workerman[start.php] is stoping ...
-2015-06-29 03:11:28 Workerman[start.php] Stopping ...
-2015-06-29 03:11:28 Workerman[start.php] has been stopped
-2015-06-29 03:11:28 Workerman[start.php] stop success
-2015-06-29 03:16:28 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:16:56 Workerman[start.php] stop 
-2015-06-29 03:16:56 Workerman[start.php] is stoping ...
-2015-06-29 03:16:56 Workerman[start.php] Stopping ...
-2015-06-29 03:16:56 Workerman[start.php] has been stopped
-2015-06-29 03:16:56 Workerman[start.php] stop success
-2015-06-29 03:19:17 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:19:44 Workerman[start.php] stop 
-2015-06-29 03:19:44 Workerman[start.php] is stoping ...
-2015-06-29 03:19:44 Workerman[start.php] Stopping ...
-2015-06-29 03:19:44 Workerman[start.php] has been stopped
-2015-06-29 03:19:44 Workerman[start.php] stop success
-2015-06-29 03:23:48 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:33:37 Workerman[start.php] stop 
-2015-06-29 03:33:37 Workerman[start.php] is stoping ...
-2015-06-29 03:33:37 Workerman[start.php] Stopping ...
-2015-06-29 03:33:37 Workerman[start.php] has been stopped
-2015-06-29 03:33:37 Workerman[start.php] stop success
-2015-06-29 03:33:38 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:35:46 Workerman[start.php] stop 
-2015-06-29 03:35:46 Workerman[start.php] is stoping ...
-2015-06-29 03:35:46 Workerman[start.php] Stopping ...
-2015-06-29 03:35:46 Workerman[start.php] has been stopped
-2015-06-29 03:35:46 Workerman[start.php] stop success
-2015-06-29 03:35:47 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:36:18 Workerman[start.php] stop 
-2015-06-29 03:36:18 Workerman[start.php] is stoping ...
-2015-06-29 03:36:18 Workerman[start.php] Stopping ...
-2015-06-29 03:36:18 Workerman[start.php] has been stopped
-2015-06-29 03:36:18 Workerman[start.php] stop success
-2015-06-29 03:36:46 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:42:05 Workerman[start.php] stop 
-2015-06-29 03:42:05 Workerman[start.php] is stoping ...
-2015-06-29 03:42:05 Workerman[start.php] Stopping ...
-2015-06-29 03:42:05 Workerman[start.php] has been stopped
-2015-06-29 03:42:05 Workerman[start.php] stop success
-2015-06-29 03:42:06 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:49:32 Workerman[start.php] stop 
-2015-06-29 03:49:32 Workerman[start.php] is stoping ...
-2015-06-29 03:49:32 Workerman[start.php] Stopping ...
-2015-06-29 03:49:32 Workerman[start.php] has been stopped
-2015-06-29 03:49:32 Workerman[start.php] stop success
-2015-06-29 03:49:34 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:52:48 Workerman[start.php] stop 
-2015-06-29 03:52:48 Workerman[start.php] is stoping ...
-2015-06-29 03:52:48 Workerman[start.php] Stopping ...
-2015-06-29 03:52:49 Workerman[start.php] has been stopped
-2015-06-29 03:52:49 Workerman[start.php] stop success
-2015-06-29 03:53:55 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:55:01 Workerman[start.php] stop 
-2015-06-29 03:55:01 Workerman[start.php] is stoping ...
-2015-06-29 03:55:01 Workerman[start.php] Stopping ...
-2015-06-29 03:55:01 Workerman[start.php] has been stopped
-2015-06-29 03:55:01 Workerman[start.php] stop success
-2015-06-29 03:55:02 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:56:53 Workerman[start.php] stop 
-2015-06-29 03:56:53 Workerman[start.php] is stoping ...
-2015-06-29 03:56:53 Workerman[start.php] Stopping ...
-2015-06-29 03:56:53 Workerman[start.php] has been stopped
-2015-06-29 03:56:53 Workerman[start.php] stop success
-2015-06-29 03:56:56 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:57:44 Workerman[start.php] stop 
-2015-06-29 03:57:44 Workerman[start.php] is stoping ...
-2015-06-29 03:57:44 Workerman[start.php] Stopping ...
-2015-06-29 03:57:44 Workerman[start.php] has been stopped
-2015-06-29 03:57:44 Workerman[start.php] stop success
-2015-06-29 03:57:46 Workerman[start.php] start in DEBUG mode
-2015-06-29 03:57:51 Workerman[start.php] stop 
-2015-06-29 03:57:51 Workerman[start.php] is stoping ...
-2015-06-29 03:57:51 Workerman[start.php] Stopping ...
-2015-06-29 03:57:51 Workerman[start.php] has been stopped
-2015-06-29 03:57:51 Workerman[start.php] stop success
-2015-06-29 03:57:53 Workerman[start.php] start in DEBUG mode
-2015-06-29 04:03:57 Workerman[start.php] stop 
-2015-06-29 04:03:57 Workerman[start.php] is stoping ...
-2015-06-29 04:03:57 Workerman[start.php] Stopping ...
-2015-06-29 04:03:57 Workerman[start.php] has been stopped
-2015-06-29 04:03:57 Workerman[start.php] stop success
-2015-06-29 04:03:59 Workerman[start.php] start in DEBUG mode
-2015-06-29 04:04:04 WORKER EXIT UNEXPECTED E_ERROR Call to a member function addIns() on a non-object in /var/www/sts/controller.php on line 50
-2015-06-29 04:04:04 worker[CoreSystemController:11816] exit with status 65280
-2015-06-29 04:15:23 Workerman[start.php] stop 
-2015-06-29 04:15:23 Workerman[start.php] is stoping ...
-2015-06-29 04:15:23 Workerman[start.php] Stopping ...
-2015-06-29 04:15:23 Workerman[start.php] has been stopped
-2015-06-29 04:15:23 Workerman[start.php] stop success
-2015-06-29 04:15:51 Workerman[start.php] start in DEBUG mode
-2015-06-29 04:16:14 WORKER EXIT UNEXPECTED E_ERROR Call to a member function addIns() on a non-object in /var/www/sts/controller.php on line 50
-2015-06-29 04:16:14 worker[CoreSystemController:11985] exit with status 65280
-2015-06-29 04:16:34 WORKER EXIT UNEXPECTED E_ERROR Call to a member function addIns() on a non-object in /var/www/sts/controller.php on line 50
-2015-06-29 04:16:34 worker[CoreSystemController:12016] exit with status 65280
-2015-06-29 04:21:31 Workerman[start.php] stop 
-2015-06-29 04:21:31 Workerman[start.php] is stoping ...
-2015-06-29 04:21:31 Workerman[start.php] Stopping ...
-2015-06-29 04:21:31 Workerman[start.php] has been stopped
-2015-06-29 04:21:31 Workerman[start.php] stop success
-2015-06-29 04:21:32 Workerman[start.php] start in DEBUG mode
-2015-06-29 04:27:03 Workerman[start.php] stop 
-2015-06-29 04:27:03 Workerman[start.php] is stoping ...
-2015-06-29 04:27:03 Workerman[start.php] Stopping ...
-2015-06-29 04:27:03 Workerman[start.php] has been stopped
-2015-06-29 04:27:03 Workerman[start.php] stop success
+2015-06-29 23:28:40 Workerman[start.php] start in DEBUG mode
+2015-06-29 23:39:02 Workerman[start.php] stop 
+2015-06-29 23:39:02 Workerman[start.php] is stoping ...
+2015-06-29 23:39:02 Workerman[start.php] Stopping ...
+2015-06-29 23:39:02 Workerman[start.php] has been stopped
+2015-06-29 23:39:02 Workerman[start.php] stop success
+2015-06-29 23:39:08 Workerman[start.php] start in DEBUG mode
+2015-06-29 23:58:08 Workerman[start.php] stop 
+2015-06-29 23:58:08 Workerman[start.php] is stoping ...
+2015-06-29 23:58:08 Workerman[start.php] Stopping ...
+2015-06-29 23:58:08 Workerman[start.php] has been stopped
+2015-06-29 23:58:08 Workerman[start.php] stop success
+2015-06-29 23:58:09 Workerman[start.php] start in DEBUG mode
+2015-06-30 00:25:06 Workerman[start.php] stop 
+2015-06-30 00:25:06 Workerman[start.php] is stoping ...
+2015-06-30 00:25:06 Workerman[start.php] Stopping ...
+2015-06-30 00:25:06 Workerman[start.php] has been stopped
+2015-06-30 00:25:07 Workerman[start.php] stop success
+2015-06-30 00:26:55 Workerman[start.php] start in DEBUG mode
+2015-06-30 00:27:07 WORKER EXIT UNEXPECTED E_ERROR Call to a member function display() on a non-object in /var/www/sts/pool.php on line 230
+2015-06-30 00:27:07 worker[CoreSystemController:15433] exit with status 65280
+2015-06-30 00:30:05 Workerman[start.php] stop 
+2015-06-30 00:30:05 Workerman[start.php] is stoping ...
+2015-06-30 00:30:05 Workerman[start.php] Stopping ...
+2015-06-30 00:30:05 Workerman[start.php] has been stopped
+2015-06-30 00:30:05 Workerman[start.php] stop success
+2015-06-30 00:30:07 Workerman[start.php] start in DEBUG mode
+2015-06-30 00:41:18 Workerman[start.php] stop 
+2015-06-30 00:41:18 Workerman[start.php] is stoping ...
+2015-06-30 00:41:18 Workerman[start.php] Stopping ...
+2015-06-30 00:41:18 Workerman[start.php] has been stopped
+2015-06-30 00:41:18 Workerman[start.php] stop success
+2015-06-30 00:41:22 Workerman[start.php] start in DEBUG mode
+2015-06-30 00:44:00 Workerman[start.php] stop 
+2015-06-30 00:44:00 Workerman[start.php] is stoping ...
+2015-06-30 00:44:00 Workerman[start.php] Stopping ...
+2015-06-30 00:44:00 Workerman[start.php] has been stopped
+2015-06-30 00:44:00 Workerman[start.php] stop success
+2015-06-30 00:44:03 Workerman[start.php] start in DEBUG mode
+2015-06-30 00:50:08 Workerman[start.php] stop 
+2015-06-30 00:50:08 Workerman[start.php] is stoping ...
+2015-06-30 00:50:08 Workerman[start.php] Stopping ...
+2015-06-30 00:50:08 Workerman[start.php] has been stopped
+2015-06-30 00:50:08 Workerman[start.php] stop success
+2015-06-30 00:50:10 Workerman[start.php] start in DEBUG mode
+2015-06-30 00:50:19 Workerman[start.php] stop 
+2015-06-30 00:50:19 Workerman[start.php] is stoping ...
+2015-06-30 00:50:19 Workerman[start.php] Stopping ...
+2015-06-30 00:50:19 Workerman[start.php] has been stopped
+2015-06-30 00:50:19 Workerman[start.php] stop success
+2015-06-30 00:50:21 Workerman[start.php] start in DEBUG mode
+2015-06-30 00:52:26 WORKER EXIT UNEXPECTED E_ERROR Call to undefined method stdClass::display() in /var/www/sts/pool.php on line 273
+2015-06-30 00:52:26 worker[CoreSystemController:15857] exit with status 65280
+2015-06-30 01:21:33 Workerman[start.php] stop 
+2015-06-30 01:21:33 Workerman[start.php] is stoping ...
+2015-06-30 01:21:33 Workerman[start.php] Stopping ...
+2015-06-30 01:21:33 Workerman[start.php] has been stopped
+2015-06-30 01:21:33 Workerman[start.php] stop success
+2015-06-30 01:22:40 Workerman[start.php] start in DEBUG mode
+2015-06-30 01:45:17 Workerman[start.php] stop 
+2015-06-30 01:45:17 Workerman[start.php] is stoping ...
+2015-06-30 01:45:17 Workerman[start.php] Stopping ...
+2015-06-30 01:45:17 Workerman[start.php] has been stopped
+2015-06-30 01:45:17 Workerman[start.php] stop success
+2015-06-30 01:52:36 Workerman[start.php] start in DEBUG mode
+2015-06-30 01:53:18 Workerman[start.php] stop 
+2015-06-30 01:53:18 Workerman[start.php] is stoping ...
+2015-06-30 01:53:18 Workerman[start.php] Stopping ...
+2015-06-30 01:53:18 Workerman[start.php] has been stopped
+2015-06-30 01:53:18 Workerman[start.php] stop success
+2015-06-30 01:55:56 Workerman[start.php] start in DEBUG mode
+2015-06-30 01:56:59 WORKER EXIT UNEXPECTED E_ERROR Call to protected method database::changeCapital() from context 'controller' in /var/www/sts/controller.php on line 59
+2015-06-30 01:56:59 worker[CoreSystemController:16707] exit with status 65280
+2015-06-30 01:58:13 Workerman[start.php] stop 
+2015-06-30 01:58:13 Workerman[start.php] is stoping ...
+2015-06-30 01:58:13 Workerman[start.php] Stopping ...
+2015-06-30 01:58:13 Workerman[start.php] has been stopped
+2015-06-30 01:58:13 Workerman[start.php] stop success
+2015-06-30 02:05:42 Workerman[start.php] start in DEBUG mode
+2015-06-30 02:05:51 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function initStock() in /var/www/sts/pool.php on line 367
+2015-06-30 02:05:51 worker[CoreSystemController:16937] exit with status 65280
+2015-06-30 02:06:38 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function initStock() in /var/www/sts/pool.php on line 367
+2015-06-30 02:06:38 worker[CoreSystemController:16949] exit with status 65280
+2015-06-30 02:06:48 Workerman[start.php] stop 
+2015-06-30 02:06:48 Workerman[start.php] is stoping ...
+2015-06-30 02:06:48 Workerman[start.php] Stopping ...
+2015-06-30 02:06:48 Workerman[start.php] has been stopped
+2015-06-30 02:06:48 Workerman[start.php] stop success
+2015-06-30 02:06:49 Workerman[start.php] start in DEBUG mode
+2015-06-30 02:16:42 Workerman[start.php] stop 
+2015-06-30 02:16:42 Workerman[start.php] is stoping ...
+2015-06-30 02:16:42 Workerman[start.php] Stopping ...
+2015-06-30 02:16:42 Workerman[start.php] has been stopped
+2015-06-30 02:16:42 Workerman[start.php] stop success
+2015-06-30 02:16:47 Workerman[start.php] start in DEBUG mode
+2015-06-30 02:24:57 Workerman[start.php] stop 
+2015-06-30 02:24:57 Workerman[start.php] is stoping ...
+2015-06-30 02:24:57 Workerman[start.php] Stopping ...
+2015-06-30 02:24:57 Workerman[start.php] has been stopped
+2015-06-30 02:24:57 Workerman[start.php] stop success
+2015-06-30 02:24:58 Workerman[start.php] start in DEBUG mode
+2015-06-30 02:33:03 Workerman[start.php] stop 
+2015-06-30 02:33:03 Workerman[start.php] is stoping ...
+2015-06-30 02:33:03 Workerman[start.php] Stopping ...
+2015-06-30 02:33:03 Workerman[start.php] has been stopped
+2015-06-30 02:33:03 Workerman[start.php] stop success
+2015-06-30 02:33:05 Workerman[start.php] start in DEBUG mode
+2015-06-30 02:46:05 Workerman[start.php] stop 
+2015-06-30 02:46:05 Workerman[start.php] is stoping ...
+2015-06-30 02:46:05 Workerman[start.php] Stopping ...
+2015-06-30 02:46:05 Workerman[start.php] has been stopped
+2015-06-30 02:46:05 Workerman[start.php] stop success
+2015-06-30 02:46:07 Workerman[start.php] start in DEBUG mode
+2015-06-30 02:50:11 Workerman[start.php] stop 
+2015-06-30 02:50:11 Workerman[start.php] is stoping ...
+2015-06-30 02:50:11 Workerman[start.php] Stopping ...
+2015-06-30 02:50:11 Workerman[start.php] has been stopped
+2015-06-30 02:50:11 Workerman[start.php] stop success
+2015-06-30 02:50:20 Workerman[start.php] stop 
+2015-06-30 02:50:20 Workerman[start.php] not run
+2015-06-30 02:50:20 Workerman[start.php] is stoping ...
+2015-06-30 02:50:20 Workerman[start.php] stop success
+2015-06-30 02:50:21 Workerman[start.php] start in DEBUG mode
+2015-06-30 02:53:53 Workerman[start.php] stop 
+2015-06-30 02:53:53 Workerman[start.php] is stoping ...
+2015-06-30 02:53:53 Workerman[start.php] Stopping ...
+2015-06-30 02:53:53 Workerman[start.php] has been stopped
+2015-06-30 02:53:53 Workerman[start.php] stop success
+2015-06-30 02:53:55 Workerman[start.php] start in DEBUG mode
+2015-06-30 03:04:45 Workerman[start.php] stop 
+2015-06-30 03:04:45 Workerman[start.php] is stoping ...
+2015-06-30 03:04:45 Workerman[start.php] Stopping ...
+2015-06-30 03:04:45 Workerman[start.php] has been stopped
+2015-06-30 03:04:45 Workerman[start.php] stop success
+2015-06-30 03:05:06 Workerman[start.php] start in DEBUG mode
+2015-06-30 03:09:18 Workerman[start.php] stop 
+2015-06-30 03:09:18 Workerman[start.php] is stoping ...
+2015-06-30 03:09:18 Workerman[start.php] Stopping ...
+2015-06-30 03:09:18 Workerman[start.php] has been stopped
+2015-06-30 03:09:18 Workerman[start.php] stop success
+2015-06-30 03:09:21 Workerman[start.php] start in DEBUG mode
+2015-06-30 03:10:17 Workerman[start.php] stop 
+2015-06-30 03:10:17 Workerman[start.php] is stoping ...
+2015-06-30 03:10:17 Workerman[start.php] Stopping ...
+2015-06-30 03:10:17 Workerman[start.php] has been stopped
+2015-06-30 03:10:17 Workerman[start.php] stop success
+2015-06-30 03:10:19 Workerman[start.php] start in DEBUG mode
+2015-06-30 03:13:27 Workerman[start.php] stop 
+2015-06-30 03:13:27 Workerman[start.php] is stoping ...
+2015-06-30 03:13:27 Workerman[start.php] Stopping ...
+2015-06-30 03:13:27 Workerman[start.php] has been stopped
+2015-06-30 03:13:27 Workerman[start.php] stop success
+2015-06-30 03:13:30 Workerman[start.php] start in DEBUG mode
+2015-06-30 03:22:41 Workerman[start.php] stop 
+2015-06-30 03:22:41 Workerman[start.php] is stoping ...
+2015-06-30 03:22:41 Workerman[start.php] Stopping ...
+2015-06-30 03:22:41 Workerman[start.php] has been stopped
+2015-06-30 03:22:41 Workerman[start.php] stop success
+2015-06-30 03:22:42 Workerman[start.php] start in DEBUG mode
+2015-06-30 03:25:50 Workerman[start.php] stop 
+2015-06-30 03:25:50 Workerman[start.php] is stoping ...
+2015-06-30 03:25:50 Workerman[start.php] Stopping ...
+2015-06-30 03:25:51 Workerman[start.php] has been stopped
+2015-06-30 03:25:51 Workerman[start.php] stop success
+2015-06-30 03:29:58 Workerman[start.php] start in DEBUG mode
+2015-06-30 03:34:28 Workerman[start.php] stop 
+2015-06-30 03:34:28 Workerman[start.php] is stoping ...
+2015-06-30 03:34:28 Workerman[start.php] Stopping ...
+2015-06-30 03:34:28 Workerman[start.php] has been stopped
+2015-06-30 03:34:28 Workerman[start.php] stop success
+2015-06-30 03:34:30 Workerman[start.php] start in DEBUG mode
+2015-06-30 03:36:02 Workerman[start.php] stop 
+2015-06-30 03:36:02 Workerman[start.php] is stoping ...
+2015-06-30 03:36:02 Workerman[start.php] Stopping ...
+2015-06-30 03:36:02 Workerman[start.php] has been stopped
+2015-06-30 03:36:02 Workerman[start.php] stop success

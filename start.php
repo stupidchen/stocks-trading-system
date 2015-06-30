@@ -21,7 +21,7 @@ $workerInst->count = 1;
 $workerInst->onMessage = function($connection, $message){
 	addLog('Worker:Received message!');
 	$messageData = json_decode($message, true);
-	$newInstruction = new instructions($messageData['time'], NULL, $messageData['aid'], $messageData['code'], $messageData['amount'], $messageData['price'], $messageData['type']);
+	$newInstruction = new instructions($messageData['time'], $messageData['id'], $messageData['aid'], $messageData['code'], $messageData['amount'], $messageData['price'], $messageData['type'], NULL, $messageData['msec']);
 	addLog('Worker:Prepare to process the instruction!');
 	$cu = $GLOBALS['CU'];
 	$cu->process($newInstruction);

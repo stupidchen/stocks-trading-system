@@ -174,3 +174,189 @@
 2015-06-30 03:36:02 Workerman[start.php] Stopping ...
 2015-06-30 03:36:02 Workerman[start.php] has been stopped
 2015-06-30 03:36:02 Workerman[start.php] stop success
+2015-07-01 01:30:55 Workerman[start.php] stop 
+2015-07-01 01:30:55 Workerman[start.php] not run
+2015-07-01 01:30:55 Workerman[start.php] is stoping ...
+2015-07-01 01:30:55 Workerman[start.php] stop success
+2015-07-01 01:31:03 Workerman[start.php] start in DEBUG mode
+2015-07-01 01:31:04 exception 'Exception' with message 'cant not mkdir(/tmp/home/log/CliTes/)' in /var/www/sts/GatewayWorker/Lib/StoreDriver/File.php:44
+Stack trace:
+#0 /var/www/sts/GatewayWorker/Lib/Store.php(92): GatewayWorker\Lib\StoreDriver\File->__construct('gateway')
+#1 /var/www/sts/GatewayWorker/Gateway.php(519): GatewayWorker\Lib\Store::instance('gateway')
+#2 /var/www/sts/GatewayWorker/Gateway.php(400): GatewayWorker\Gateway->registerAddress()
+#3 [internal function]: GatewayWorker\Gateway->onWorkerStart(Object(GatewayWorker\Gateway))
+#4 /var/www/sts/Workerman/Worker.php(1286): call_user_func(Array, Object(GatewayWorker\Gateway))
+#5 /var/www/sts/GatewayWorker/Gateway.php(178): Workerman\Worker->run()
+#6 /var/www/sts/Workerman/Worker.php(779): GatewayWorker\Gateway->run()
+#7 /var/www/sts/Workerman/Worker.php(748): Workerman\Worker::forkOneWorker(Object(GatewayWorker\Gateway))
+#8 /var/www/sts/Workerman/Worker.php(328): Workerman\Worker::forkWorkers()
+#9 /var/www/sts/start.php(38): Workerman\Worker::runAll()
+#10 {main}
+2015-07-01 01:31:04 registerAddress fail and exit
+2015-07-01 01:52:22 Workerman[start.php] stop 
+2015-07-01 01:52:22 Workerman[start.php] is stoping ...
+2015-07-01 01:52:22 Workerman[start.php] Stopping ...
+2015-07-01 01:52:22 Workerman[start.php] has been stopped
+2015-07-01 01:52:22 Workerman[start.php] stop success
+2015-07-01 01:52:24 Workerman[start.php] start in DEBUG mode
+2015-07-01 02:28:38 Workerman[start.php] stop 
+2015-07-01 02:28:38 Workerman[start.php] is stoping ...
+2015-07-01 02:28:38 Workerman[start.php] Stopping ...
+2015-07-01 02:28:38 Workerman[start.php] has been stopped
+2015-07-01 02:28:38 Workerman[start.php] stop success
+2015-07-01 02:31:51 Workerman[start.php] start in DEBUG mode
+2015-07-01 02:40:35 WORKER EXIT UNEXPECTED E_ERROR Call to protected method database::deleteHistory() from context 'controller' in /var/www/sts/controller.php on line 66
+2015-07-01 02:40:35 worker[CoreSystemController:8171] exit with status 65280
+2015-07-01 03:24:05 Workerman[start.php] stop 
+2015-07-01 03:24:05 Workerman[start.php] is stoping ...
+2015-07-01 03:24:05 Workerman[start.php] Stopping ...
+2015-07-01 03:24:05 Workerman[start.php] has been stopped
+2015-07-01 03:24:05 Workerman[start.php] stop success
+2015-07-01 03:26:14 Workerman[start.php] start in DEBUG mode
+2015-07-01 03:29:09 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /var/www/sts/controller.php on line 66
+2015-07-01 03:29:09 worker[CoreSystemController:8717] exit with status 65280
+2015-07-01 03:30:22 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /var/www/sts/controller.php on line 66
+2015-07-01 03:30:22 worker[CoreSystemController:8812] exit with status 65280
+2015-07-01 03:32:36 Workerman[start.php] stop 
+2015-07-01 03:32:36 Workerman[start.php] is stoping ...
+2015-07-01 03:32:36 Workerman[start.php] Stopping ...
+2015-07-01 03:32:36 Workerman[start.php] has been stopped
+2015-07-01 03:32:36 Workerman[start.php] stop success
+2015-07-01 03:32:38 Workerman[start.php] start in DEBUG mode
+2015-07-01 03:35:34 Workerman[start.php] stop 
+2015-07-01 03:35:34 Workerman[start.php] is stoping ...
+2015-07-01 03:35:34 Workerman[start.php] Stopping ...
+2015-07-01 03:35:34 Workerman[start.php] has been stopped
+2015-07-01 03:35:34 Workerman[start.php] stop success
+2015-07-01 03:35:36 Workerman[start.php] start in DEBUG mode
+2015-07-01 03:38:01 Workerman[start.php] stop 
+2015-07-01 03:38:01 Workerman[start.php] is stoping ...
+2015-07-01 03:38:01 Workerman[start.php] Stopping ...
+2015-07-01 03:38:01 Workerman[start.php] has been stopped
+2015-07-01 03:38:01 Workerman[start.php] stop success
+2015-07-01 03:38:03 Workerman[start.php] start in DEBUG mode
+2015-07-01 03:43:58 WORKER EXIT UNEXPECTED E_ERROR Call to undefined method pool::delIns() in /var/www/sts/controller.php on line 71
+2015-07-01 03:43:58 worker[CoreSystemController:9050] exit with status 65280
+2015-07-01 03:50:10 Workerman[start.php] stop 
+2015-07-01 03:50:10 Workerman[start.php] is stoping ...
+2015-07-01 03:50:10 Workerman[start.php] Stopping ...
+2015-07-01 03:50:10 Workerman[start.php] has been stopped
+2015-07-01 03:50:10 Workerman[start.php] stop success
+2015-07-01 03:51:25 Workerman[start.php] start in DEBUG mode
+2015-07-01 03:54:52 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function deleteBuyIns() in /var/www/sts/pool.php on line 191
+2015-07-01 03:54:52 worker[CoreSystemController:9319] exit with status 65280
+2015-07-01 04:00:26 Workerman[start.php] stop 
+2015-07-01 04:00:26 Workerman[start.php] is stoping ...
+2015-07-01 04:00:26 Workerman[start.php] Stopping ...
+2015-07-01 04:00:26 Workerman[start.php] has been stopped
+2015-07-01 04:00:26 Workerman[start.php] stop success
+2015-07-01 04:01:25 Workerman[start.php] start in DEBUG mode
+2015-07-01 04:11:18 Workerman[start.php] stop 
+2015-07-01 04:11:18 Workerman[start.php] is stoping ...
+2015-07-01 04:11:18 Workerman[start.php] Stopping ...
+2015-07-01 04:11:18 Workerman[start.php] has been stopped
+2015-07-01 04:11:18 Workerman[start.php] stop success
+2015-07-01 04:15:04 Workerman[start.php] start in DEBUG mode
+2015-07-01 04:17:01 WORKER EXIT UNEXPECTED E_ERROR Call to undefined method stdClass::addBuyIns() in /var/www/sts/pool.php on line 413
+2015-07-01 04:17:01 worker[CoreSystemController:9731] exit with status 65280
+2015-07-01 04:19:08 Workerman[start.php] stop 
+2015-07-01 04:19:08 Workerman[start.php] is stoping ...
+2015-07-01 04:19:08 Workerman[start.php] Stopping ...
+2015-07-01 04:19:08 Workerman[start.php] has been stopped
+2015-07-01 04:19:08 Workerman[start.php] stop success
+2015-07-01 04:19:19 Workerman[start.php] start in DEBUG mode
+2015-07-01 04:27:24 Workerman[start.php] stop 
+2015-07-01 04:27:24 Workerman[start.php] is stoping ...
+2015-07-01 04:27:24 Workerman[start.php] Stopping ...
+2015-07-01 04:27:24 Workerman[start.php] has been stopped
+2015-07-01 04:27:24 Workerman[start.php] stop success
+2015-07-01 04:27:25 Workerman[start.php] start in DEBUG mode
+2015-07-01 04:35:11 Workerman[start.php] stop 
+2015-07-01 04:35:11 Workerman[start.php] is stoping ...
+2015-07-01 04:35:11 Workerman[start.php] Stopping ...
+2015-07-01 04:35:11 Workerman[start.php] has been stopped
+2015-07-01 04:35:11 Workerman[start.php] stop success
+2015-07-01 04:35:13 Workerman[start.php] start in DEBUG mode
+2015-07-01 04:38:28 Workerman[start.php] stop 
+2015-07-01 04:38:28 Workerman[start.php] is stoping ...
+2015-07-01 04:38:28 Workerman[start.php] Stopping ...
+2015-07-01 04:38:28 Workerman[start.php] has been stopped
+2015-07-01 04:38:28 Workerman[start.php] stop success
+2015-07-01 04:39:35 Workerman[start.php] start in DEBUG mode
+2015-07-01 04:41:41 Workerman[start.php] stop 
+2015-07-01 04:41:41 Workerman[start.php] is stoping ...
+2015-07-01 04:41:41 Workerman[start.php] Stopping ...
+2015-07-01 04:41:41 Workerman[start.php] has been stopped
+2015-07-01 04:41:41 Workerman[start.php] stop success
+2015-07-01 04:42:01 Workerman[start.php] start in DEBUG mode
+2015-07-01 04:48:32 Workerman[start.php] stop 
+2015-07-01 04:48:32 Workerman[start.php] is stoping ...
+2015-07-01 04:48:32 Workerman[start.php] Stopping ...
+2015-07-01 04:48:32 Workerman[start.php] has been stopped
+2015-07-01 04:48:32 Workerman[start.php] stop success
+2015-07-01 04:49:09 Workerman[start.php] start in DEBUG mode
+2015-07-01 04:55:56 Workerman[start.php] stop 
+2015-07-01 04:55:56 Workerman[start.php] is stoping ...
+2015-07-01 04:55:56 Workerman[start.php] Stopping ...
+2015-07-01 04:55:56 Workerman[start.php] has been stopped
+2015-07-01 04:55:56 Workerman[start.php] stop success
+2015-07-01 04:56:27 Workerman[start.php] start in DEBUG mode
+2015-07-01 05:00:07 Workerman[start.php] stop 
+2015-07-01 05:00:07 Workerman[start.php] is stoping ...
+2015-07-01 05:00:07 Workerman[start.php] Stopping ...
+2015-07-01 05:00:07 Workerman[start.php] has been stopped
+2015-07-01 05:00:07 Workerman[start.php] stop success
+2015-07-01 05:00:37 Workerman[start.php] start in DEBUG mode
+2015-07-01 05:05:16 Workerman[start.php] stop 
+2015-07-01 05:05:16 Workerman[start.php] is stoping ...
+2015-07-01 05:05:16 Workerman[start.php] Stopping ...
+2015-07-01 05:05:16 Workerman[start.php] has been stopped
+2015-07-01 05:05:16 Workerman[start.php] stop success
+2015-07-01 05:05:51 Workerman[start.php] start in DEBUG mode
+2015-07-01 05:11:27 Workerman[start.php] stop 
+2015-07-01 05:11:27 Workerman[start.php] is stoping ...
+2015-07-01 05:11:27 Workerman[start.php] Stopping ...
+2015-07-01 05:11:27 Workerman[start.php] has been stopped
+2015-07-01 05:11:27 Workerman[start.php] stop success
+2015-07-01 05:12:10 Workerman[start.php] start in DEBUG mode
+2015-07-01 05:12:35 Workerman[start.php] start in DEBUG mode
+2015-07-01 05:12:35 Workerman[start.php] is running
+2015-07-01 05:12:37 Workerman[start.php] stop 
+2015-07-01 05:12:37 Workerman[start.php] is stoping ...
+2015-07-01 05:12:37 Workerman[start.php] Stopping ...
+2015-07-01 05:12:37 Workerman[start.php] has been stopped
+2015-07-01 05:12:37 Workerman[start.php] stop success
+2015-07-01 05:12:39 Workerman[start.php] start in DEBUG mode
+2015-07-01 05:15:04 Workerman[start.php] stop 
+2015-07-01 05:15:04 Workerman[start.php] is stoping ...
+2015-07-01 05:15:04 Workerman[start.php] Stopping ...
+2015-07-01 05:15:04 Workerman[start.php] has been stopped
+2015-07-01 05:15:04 Workerman[start.php] stop success
+2015-07-01 05:15:48 Workerman[start.php] start in DEBUG mode
+2015-07-01 05:20:43 Workerman[start.php] stop 
+2015-07-01 05:20:43 Workerman[start.php] is stoping ...
+2015-07-01 05:20:43 Workerman[start.php] Stopping ...
+2015-07-01 05:20:43 Workerman[start.php] has been stopped
+2015-07-01 05:20:43 Workerman[start.php] stop success
+2015-07-01 05:21:54 Workerman[start.php] start in DEBUG mode
+2015-07-01 05:24:40 Workerman[start.php] stop 
+2015-07-01 05:24:40 Workerman[start.php] is stoping ...
+2015-07-01 05:24:40 Workerman[start.php] Stopping ...
+2015-07-01 05:24:40 Workerman[start.php] has been stopped
+2015-07-01 05:24:40 Workerman[start.php] stop success
+2015-07-01 05:24:42 Workerman[start.php] start in DEBUG mode
+2015-07-01 05:25:15 Workerman[start.php] stop 
+2015-07-01 05:25:15 Workerman[start.php] is stoping ...
+2015-07-01 05:25:15 Workerman[start.php] Stopping ...
+2015-07-01 05:25:15 Workerman[start.php] has been stopped
+2015-07-01 05:25:15 Workerman[start.php] stop success
+2015-07-01 05:26:26 Workerman[start.php] stop 
+2015-07-01 05:26:26 Workerman[start.php] not run
+2015-07-01 05:26:26 Workerman[start.php] is stoping ...
+2015-07-01 05:26:26 Workerman[start.php] stop success
+2015-07-01 05:26:28 Workerman[start.php] start in DEBUG mode
+2015-07-01 05:26:30 Workerman[start.php] stop 
+2015-07-01 05:26:30 Workerman[start.php] is stoping ...
+2015-07-01 05:26:30 Workerman[start.php] Stopping ...
+2015-07-01 05:26:30 Workerman[start.php] has been stopped
+2015-07-01 05:26:30 Workerman[start.php] stop success

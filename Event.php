@@ -28,7 +28,7 @@ class Event
 		return; 
 	}//参数错误
 	addLog("Gateway:Start to dividing the instruction!");
-	if($keys!=array('type','id','aid','code','amount','price','time')){
+	if($keys!=array('type','id','aid','code','amount','price','time','msec')){
 		Gateway::sendToCurrentClient("Instruction invalid!\n");
 		Gateway::closeCurrentClient();
 		addLog("Gateway:Instruction key error. ");
@@ -42,6 +42,7 @@ class Event
 		'amount'=>$message_data['amount'],
 		'price'=>$message_data['price'],
 		'time'=>$time,
+		'msec'=>$message_data['msec']
 	);
 
 	addLog('Gateway:Instruction format checking finished!');

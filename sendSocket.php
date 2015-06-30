@@ -12,13 +12,14 @@ $result=socket_connect($socket,$ip,$port);
 if ($result < 0) echo "socket_connect() failed.The reason is ".socket_strerror($result). "\n";
 
 $sendArray=array(
-'type' => 0,
-'id' => NULL,
-'aid' => 'testCoreSystem0',
-'code' => 100,
-'amount' => 10,
-'price' => 70,
-'time' => NULL
+'type' => 2,
+'id' => '100000000005',
+'aid' => 'testCoreSystem',
+'code' => 600100,
+'amount' => 100,
+'price' => 10,
+'time' => NULL,
+'msec' => 1435698956.2586
 );
 $sendMsg=json_encode($sendArray);
 $ret=socket_write($socket,$sendMsg,strlen($sendMsg));

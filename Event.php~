@@ -4,7 +4,7 @@ use \GatewayWorker\Lib\Db;
 class Event
 {
    public static function onMessage($client_id, $message){
-	$time=date("Y:m:d H:i:s");//进入时间,精确到秒
+	$time=date("Y-m-d H:i:s");//进入时间,精确到秒
 //	$message_data = $message;
 	$message_data = json_decode($message, true);//解码
 	addLog('Gateway:Received message!');
@@ -28,7 +28,7 @@ class Event
 		return; 
 	}//参数错误
 	addLog("Gateway:Start to dividing the instruction!");
-	if($keys!=array('type','id','aid','code','amount','price','time')){
+	if($keys!=array('type','id','aid','code','amount','price','time','msec')){
 		Gateway::sendToCurrentClient("Instruction invalid!\n");
 		Gateway::closeCurrentClient();
 		addLog("Gateway:Instruction key error. ");
@@ -42,6 +42,7 @@ class Event
 		'amount'=>$message_data['amount'],
 		'price'=>$message_data['price'],
 		'time'=>$time,
+		'msec'=>$msec
 	);
 
 	addLog('Gateway:Instruction format checking finished!');

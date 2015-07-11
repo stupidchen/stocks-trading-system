@@ -348,6 +348,7 @@ class stock{
 				$this->sellIns->changeFinishedIns($this->sellIns->root);
 				$this->buyIns->changeFinishedIns($this->buyIns->root);
 			}
+			echo "buy:".$this->buyIns->nodeNum.', sell'.$this->sellIns->nodeNum."\n";
 		}
 		return $result;
 	}
@@ -355,12 +356,12 @@ class stock{
 		addLog("PoolUnit:Add sell instruction to stock. Code:$newIns->code ");
 		$newNode = new node($newIns);
 		$this->sellIns->addSellIns($this->sellIns->root,$newNode);
-		$temp = $this->buyIns->getFirstIns($this->sellIns->root);
+		$temp = $this->sellIns->getFirstIns($this->sellIns->root);
 		$this->sellIns->display($this->sellIns->root,1);
 		$tempData = $temp->getData();
 		$result=new tradeResult();
 		if ($tempData->id == $newIns->id){
-			$this->sellIns->matchSB($this->buyIns->root,$temp,$result);
+			$this->buyIns->matchSB($this->buyIns->root,$temp,$result);
 			echo $this->buyIns->nodeNum.', '.$this->sellIns->nodeNum."\n";
 			if ($result->num != 0){
 				$tempAmount=0;
@@ -370,12 +371,11 @@ class stock{
 					$tempPrice += $result->ins[$i]->total;
 				}
 				addLog("Pool:Matching Success! amount:$tempAmount price:$tempPrice/$tempAmount");
-				$result->addResult($tempAmount, $tempPrice/$tempAmount, $newIns->id, $tempPrice);
+				$result->addResult($tempAmount, $tempPrice/$tempAmount, $newIns, $tempPrice);
 				$this->sellIns->changeFinishedIns($this->sellIns->root);
 				$this->buyIns->changeFinishedIns($this->buyIns->root);
 			}
-			echo $this->buyIns->nodeNum.', '.$this->sellIns->nodeNum."\n";
-			
+			echo "buy:".$this->buyIns->nodeNum.', sell'.$this->sellIns->nodeNum."\n";
 		}
 		return $result;
 	}
@@ -425,6 +425,10 @@ class pool{
 		addLog("PoolUnit:Start to delete instruction.");
 		$code = $tempInstruction->code;
 		if ($this->stock_ins[$code] == NULL) $this->initStock($code);
+		if (!$this->stock_ins[$code]->status){
+			addLog("PoolUnit:Delete instruction failed. The stock $code may be froze");
+			return false;
+		}
 		$newIns = $tempInstruction;
 		return $this->stock_ins[$code]->deleteIns($newIns);
 	}

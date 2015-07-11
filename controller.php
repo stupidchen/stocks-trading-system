@@ -63,19 +63,17 @@ class controller{
 				}
 			}//buy or sell
 			if ($ins->getStatus() == 2){
-				if (!$this->databaseUnit->deleteHistory($ins->id)){
-					addLog("Controller:Database error.");
-					return false;
-				}
 				addLog('Controller:Deleting instruction to pool...');
 				if (!$this->poolUnit->deleteIns($ins)){ 
 					addLog("Controller:Delete instruction failed.");
 					return false;
 				}
-				else{
-					addLog("Controller:Delete succeed!");
-					return true;
+				else addLog("Controller:Delete succeed!");
+				if (!$this->databaseUnit->deleteHistory($ins->id)){
+					addLog("Controller:Database error.");
+					return false;
 				}
+				return true;
 			}
 			if ($ins->getStatus() == 3 || $ins->getStatus() == 4){
 				return $this->poolUnit->changeStatus($ins);

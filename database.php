@@ -110,6 +110,7 @@ class database{
 		$code = $ins->code;
 		$amount = $ins->amount;
 		$price = $ins->price;
+		$total = $ins->total;
 
     		$db = $this->ping();
     		if(!$db){
@@ -118,28 +119,69 @@ class database{
 		}
     		mysql_select_db("STS",$db);
     		$sql = "select * from Capital_Repo where aid = '$aid'";
-		$result = mysql_query($sql);
-		if ($type == 1){
-			while($row = mysql_fetch_array($result)){	
-				$sql1 = "update Capital_Repo set capital=capital-($price*$amount) where aid = '$aid' ";
+		if (!mysql_query($sql)){
+			addLog("DatabaseUnit:The capital account $aid does not exist.");
+			return false;
+		}
+		$sql2 = "select hid from Stock_Hold where aid = '$aid' and code = $code";
+		$hidResult = mysql_fetch_array(mysql_query($sql2));
+		$hid = $hidResult['hid'];
 
-				if (!mysql_query($sql1)){
-					addLog('DatabaseUnit:Update the capital failed! '.mysql_error()."\n");
+		if ($type == 1){
+			$sql3 = "update Capital_Repo set capital=capital-$total where aid = '$aid' ";
+			if (!mysql_query($sql3)){
+				addLog('DatabaseUnit:Update the capital failed! '.mysql_error()."\n");
+				return false;
+			}
+			if ($hid != NULL){
+				$sql4 = "update Stock_Hold set amount=amount+$amount where hid = '$hid'";
+
+				if (!mysql_query($sql4)){
+					addLog('DatabaseUnit:Update the amount failed! '.mysql_error()."\n");
 					return false;
 				}
+			}
+			else{
+				$sql4 = "select max(hid) from Stock_Hold";
+				$result = mysql_query($sql4);
+				$row = mysql_fetch_array($result);
+				$hid = $row['max(hid)']+1;
+				$sql4 =  "insert into Stock_Hold(hid,aid,code,amount,statue) values ('$hid', '$aid', $code, $amount, 'NORMAL')";
+				if (!mysql_query($sql4)){
+					addLog('DatabaseUnit:Update the amount failed! '.mysql_error()."\n");
+					return false;
+				}
+					
 			}
 		}
 		else{
-			while($row = mysql_fetch_array($result)){	
-				$sql1 = "update Capital_Repo set capital=capital+($price*$amount) where aid = '$aid' ";
-
-				if (!mysql_query($sql1)){
-					addLog('DatabaseUnit:Update the capital failed! '.mysql_error()."\n");
+			$sql3 = "update Capital_Repo set capital=capital+$total where aid = '$aid' ";
+			if (!mysql_query($sql3)){
+				addLog('DatabaseUnit:Update the capital failed! '.mysql_error()."\n");
+				return false;
+			}
+			if ($hid != NULL){
+				$sql4 = "update Stock_Hold set amount=amount-$amount where hid = '$hid'";
+				if (!mysql_query($sql4)){
+					addLog('DatabaseUnit:Update the amount failed! '.mysql_error()."\n");
 					return false;
 				}
+				$sql4 = "select * from Stock_Hold where hid = '$hid'";
+				$result = mysql_query($sql4);
+				$row = mysql_fetch_array($result);
+				$amount = $row['amount'];
+				if ($amount == 0){
+					$sql4 = "delete from Stock_Hold where hid = '$hid'";
+					mysql_query($sql4);
+				}
+			}
+			else{
+				addLog('DatabaseUnit:Update the amount failed!The hold record does not exist!'.mysql_error());
+				return false;
 			}
 		}
 		addLog('DatabaseUnit:Update the capital succeed! ');
+		addLog('DatabaseUnit:Update the amount succeed! ');
 		return true;
 	}
 
